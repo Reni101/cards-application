@@ -1,8 +1,13 @@
+import { Button } from './components/ui/button'
+
 export function App() {
   return (
     <>
       Hello
-      <button>hi</button>
+      <Button variant="secondary" href={'https://www.google.com/'}>
+        hi
+      </Button>
+      <Button href="asd">hi</Button>
     </>
   )
 }
