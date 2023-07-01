@@ -4,10 +4,10 @@ export function App() {
   return (
     <>
       Hello
-      <Button variant="secondary" href={'https://www.google.com/'}>
+      <Button variant="secondary" as="a" href={'https://www.google.com/'}>
         hi
       </Button>
-      <Button href="asd">hi</Button>
+      <Button>hi</Button>
     </>
   )
 }
