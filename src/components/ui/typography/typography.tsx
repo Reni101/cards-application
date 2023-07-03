@@ -16,7 +16,7 @@ type VariantType =
   | 'link1'
   | 'link2'
 
-type ColorType = 'primary' | 'secondary' | 'inherit' | 'error' | 'link'
+type ColorType = 'primary' | 'inherit' | 'error'
 
 type TypographyType<T> = {
   as?: T
@@ -28,15 +28,9 @@ type TypographyType<T> = {
 export const Typography = <T extends ElementType = 'p'>(
   props: TypographyType<T> & Omit<ComponentPropsWithoutRef<T>, keyof TypographyType<T>>
 ) => {
-  const {
-    variant = 'body1',
-    as: Component = 'p',
-    className = '',
-    color = 'inherit',
-    ...rest
-  } = props
+  const { variant = 'body1', as: Component = 'p', className, color = 'primary', ...rest } = props
 
-  const cn = `${s[variant]} ${className} ${s[color]}`
+  const cn = `${s[variant]} ${className ?? ''} ${s[color]}`
 
   return <Component className={cn} {...rest}></Component>
 }
