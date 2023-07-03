@@ -1,12 +1,13 @@
-import { Typography } from './components/ui/typography'
+import { LogOut } from './assets/icons/logOut'
+import { Button } from './components/ui/button'
 
 export function App() {
   return (
     <>
       <div style={{ margin: 20 }}>
-        <Typography variant={'large'} color={'primary'}>
-          Typography
-        </Typography>
+        <Button variant={'secondary'}>
+          <LogOut /> Primary
+        </Button>
       </div>
     </>
   )

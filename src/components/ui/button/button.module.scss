@@ -82,6 +82,7 @@
 .tertiary {
   @include button;
 
+  padding: 0.5rem 1.75rem;
   color: var(--color-accent-500);
   border: 1px solid var(--color-accent-700);
 
@@ -100,10 +101,27 @@
 }
 
 .link {
-  font-size: 1rem;
-  font-weight: 700;
-  font-style: normal;
-  line-height: 1.5rem;
-  color: var(--color-accent-500) !important;
-  text-decoration: none;
+  @include button;
+
+  font-size: var(--font-size-m);
+  color: var(--color-accent-500);
+  background-color: inherit;
+  box-shadow: none;
+
+  &:focus-visible {
+    border-radius: 20px;
+    outline: 2px solid var(--color-info-700);
+  }
+
+  &:hover {
+    color: var(--color-accent-300);
+  }
+
+  &:active {
+    color: var(--color-accent-700);
+  }
+
+  &:disabled {
+    color: var(--color-accent-900);
+  }
 }
