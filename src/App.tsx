@@ -1,13 +1,10 @@
-import { Button } from './components/ui/button'
-import { Checkbox } from './components/ui/checkbox'
+import s from './App.module.scss'
+import { Header } from './components/ui/header'
 
 export function App() {
   return (
-    <>
-      <div style={{ margin: 20 }}>
-        <Button>Sign In</Button>
-        <Checkbox label={'Remember me'} />
-      </div>
-    </>
+    <div className={s.container}>
+      <Header />
+    </div>
   )
 }
