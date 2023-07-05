@@ -1,5 +1,5 @@
 import { SVGProps, Ref, forwardRef, memo } from 'react'
-const UnShowPassIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const UnShowPass = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" ref={ref} {...props}>
     <g fill="currentColor" clipPath="url(#a)">
       <path d="M12 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />
@@ -12,7 +12,7 @@ const UnShowPassIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>)
     </defs>
   </svg>
 )
-const ForwardRef = forwardRef(UnShowPassIcon)
+const ForwardRef = forwardRef(UnShowPass)
 const Memo = memo(ForwardRef)
 
 export default Memo

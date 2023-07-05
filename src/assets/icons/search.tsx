@@ -1,5 +1,5 @@
 import { SVGProps, Ref, forwardRef, memo } from 'react'
-const SearchIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const Search = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" ref={ref} {...props}>
     <g clipPath="url(#a)">
       <path
@@ -14,7 +14,7 @@ const SearchIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => 
     </defs>
   </svg>
 )
-const ForwardRef = forwardRef(SearchIcon)
+const ForwardRef = forwardRef(Search)
 const Memo = memo(ForwardRef)
 
 export default Memo

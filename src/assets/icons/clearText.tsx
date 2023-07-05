@@ -1,5 +1,5 @@
 import { SVGProps, Ref, forwardRef, memo } from 'react'
-const ClearTextIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const ClearText = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="none" ref={ref} {...props}>
     <g clipPath="url(#a)">
       <path
@@ -14,7 +14,7 @@ const ClearTextIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) 
     </defs>
   </svg>
 )
-const ForwardRef = forwardRef(ClearTextIcon)
+const ForwardRef = forwardRef(ClearText)
 const Memo = memo(ForwardRef)
 
 export default Memo
