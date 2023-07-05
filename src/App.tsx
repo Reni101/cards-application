@@ -1,13 +1,12 @@
-import { LogOut } from './assets/icons/logOut'
 import { Button } from './components/ui/button'
+import { Checkbox } from './components/ui/checkbox'
 
 export function App() {
   return (
     <>
       <div style={{ margin: 20 }}>
-        <Button variant={'secondary'}>
-          <LogOut /> Primary
-        </Button>
+        <Button>Sign In</Button>
+        <Checkbox label={'Remember me'} />
       </div>
     </>
   )
