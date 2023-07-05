@@ -1,9 +1,9 @@
-import { ChangeEvent, ComponentProps, ComponentPropsWithoutRef, FC, useState } from 'react'
+import { ChangeEvent, ComponentPropsWithoutRef, FC, useState } from 'react'
 
-import ClearTextIcon from '../../../assets/icons/clearTextIcon.tsx'
-import SearchIcon from '../../../assets/icons/searchIcon.tsx'
-import ShowPassIcon from '../../../assets/icons/showPassIcon.tsx'
-import UnShowPassIcon from '../../../assets/icons/unShowPassIcon.tsx'
+import ClearText from '../../../assets/icons/clearText.tsx'
+import Search from '../../../assets/icons/search.tsx'
+import ShowPass from '../../../assets/icons/showPass.tsx'
+import UnShowPass from '../../../assets/icons/unShowPass.tsx'
 
 import s from './text-field.module.scss'
 
@@ -12,14 +12,13 @@ type TextFieldPropsType = {
   value?: string
   label?: string
   type?: InputType
-  onClearText?: () => void
   onSetValue?: (value: string) => void
 }
 
 export const TextField: FC<
   TextFieldPropsType & Omit<ComponentPropsWithoutRef<'input'>, keyof TextFieldPropsType>
 > = props => {
-  const { type = 'text', label, value, onClearText, onChange, onSetValue } = props
+  const { type = 'text', label, value, onSetValue } = props
 
   const [isShowPass, setIsShowPass] = useState(false)
 
@@ -36,7 +35,7 @@ export const TextField: FC<
     setIsShowPass(!isShowPass)
   }
 
-  const iconLeft = isSearch ? <SearchIcon /> : null
+  const iconLeft = isSearch ? <Search /> : null
   const showIconRight = (
     isPass: boolean,
     isShowPass: boolean,
@@ -44,14 +43,10 @@ export const TextField: FC<
     value: string = ''
   ) => {
     if (isPass) {
-      return isShowPass ? (
-        <ShowPassIcon onClick={onShowPass} />
-      ) : (
-        <UnShowPassIcon onClick={onShowPass} />
-      )
+      return isShowPass ? <ShowPass onClick={onShowPass} /> : <UnShowPass onClick={onShowPass} />
     }
     if (isSearch && value) {
-      return <ClearTextIcon onClick={onClearInputText} />
+      return <ClearText onClick={onClearInputText} />
     }
 
     return null
