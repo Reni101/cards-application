@@ -13,7 +13,13 @@ export function App() {
         <Button variant={'secondary'}>
           <LogOut /> Primary
         </Button>
-        <TextField value={value} onSetValue={setValue} type="password" label="Input" />
+        <TextField
+          value={value}
+          onSetValue={setValue}
+          disabled={false}
+          type="search"
+          label="Input"
+        />
       </div>
     </>
   )
