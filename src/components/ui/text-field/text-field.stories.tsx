@@ -34,9 +34,9 @@ type Story = StoryObj<typeof meta>
 
 export const Text: Story = {
   args: {
+    ...meta,
     type: 'text',
     label: 'text',
-    value: '',
   },
 }
 
