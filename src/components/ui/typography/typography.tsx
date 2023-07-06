@@ -18,12 +18,12 @@ type VariantType =
 
 type ColorType = 'primary' | 'inherit' | 'error'
 
-type TypographyType<T> = {
+type TypographyType<T extends ElementType> = {
   as?: T
   variant?: VariantType
   className?: string
   color?: ColorType
-}
+} & ComponentPropsWithoutRef<T>
 
 export const Typography = <T extends ElementType = 'p'>(
   props: TypographyType<T> & Omit<ComponentPropsWithoutRef<T>, keyof TypographyType<T>>
