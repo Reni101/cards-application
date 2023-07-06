@@ -4,7 +4,7 @@ import { Button } from '../button'
 import s from './header.module.scss'
 
 type PropsType = {
-  isLoggedIn: boolean
+  isLoggedIn?: boolean
 }
 export const Header = ({ isLoggedIn = false }: PropsType) => {
   return (
