@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react'
+import { ChangeEvent, ComponentProps, FC, useState } from 'react'
 
 import ClearText from '../../../assets/icons/clearText.tsx'
 import Search from '../../../assets/icons/search.tsx'
@@ -15,10 +15,10 @@ type TextFieldPropsType = {
   onSetValue?: (value: string) => void
   disabled?: boolean
   errorMessage?: string
-}
+} & ComponentProps<'input'>
 
 export const TextField: FC<TextFieldPropsType> = props => {
-  const { type = 'text', label, value, onSetValue, disabled, errorMessage } = props
+  const { type = 'text', label, value, onSetValue, disabled, placeholder, errorMessage } = props
 
   const [isShowPass, setIsShowPass] = useState(false)
 
@@ -55,7 +55,7 @@ export const TextField: FC<TextFieldPropsType> = props => {
   return (
     <div className={s.wrapper}>
       {label && (
-        <label htmlFor="1" className={s.label}>
+        <label htmlFor="z1" className={s.label}>
           {label}
         </label>
       )}
@@ -64,9 +64,9 @@ export const TextField: FC<TextFieldPropsType> = props => {
           className={`${isSearch ? s.input + ' ' + s.isSearchIcon : s.input} ${
             errorMessage! ? s.input + ' ' + s.error : ''
           }`}
-          id="1"
+          id="z1"
           type={isPass && isShowPass ? 'text' : type}
-          placeholder="text"
+          placeholder={placeholder}
           value={value}
           onChange={onChangeHandler}
           disabled={disabled}
