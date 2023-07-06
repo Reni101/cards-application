@@ -6,7 +6,9 @@ export function App() {
   return (
     <div className={s.container}>
       <Header />
-      <LoginForm />
+      <div className={s.flex}>
+        <LoginForm />
+      </div>
     </div>
   )
 }
