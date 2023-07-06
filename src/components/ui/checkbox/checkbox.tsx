@@ -17,20 +17,18 @@ export const Checkbox = (props: PropsType) => {
 
   return (
     <>
-      <form>
-        <div className={s.container}>
-          <CheckboxRadix.Root className={s.root} id="c1" {...props}>
-            <div className={`${s.checkbox} ${disabledClass}`}>
-              <CheckboxRadix.Indicator className={s.indicator}>
-                <Checked />
-              </CheckboxRadix.Indicator>
-            </div>
-          </CheckboxRadix.Root>
-          <label className={`${s.label}  ${disabledClass}`} htmlFor="c1">
-            {props.label}
-          </label>
-        </div>
-      </form>
+      <div className={s.container}>
+        <CheckboxRadix.Root className={s.root} id="c1" {...props}>
+          <div className={`${s.checkbox} ${disabledClass}`}>
+            <CheckboxRadix.Indicator className={s.indicator}>
+              <Checked />
+            </CheckboxRadix.Indicator>
+          </div>
+        </CheckboxRadix.Root>
+        <label className={`${s.label}  ${disabledClass}`} htmlFor="c1">
+          {props.label}
+        </label>
+      </div>
     </>
   )
 }

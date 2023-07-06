@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentProps, FC, useState } from 'react'
+import { ChangeEvent, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
 import ClearText from '../../../assets/icons/clearText.tsx'
 import Search from '../../../assets/icons/search.tsx'
@@ -15,69 +15,74 @@ type TextFieldPropsType = {
   onSetValue?: (value: string) => void
   disabled?: boolean
   errorMessage?: string
-} & ComponentProps<'input'>
+} & ComponentPropsWithoutRef<'input'>
 
-export const TextField: FC<TextFieldPropsType> = props => {
-  const { type = 'text', label, value, onSetValue, disabled, errorMessage, ...rest } = props
+export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
+  (props: TextFieldPropsType, ref) => {
+    const { type = 'text', label, value, onSetValue, disabled, errorMessage, ...rest } = props
 
-  const [isShowPass, setIsShowPass] = useState(false)
+    const [isShowPass, setIsShowPass] = useState(false)
 
-  const isSearch = type === 'search'
-  const isPass = type === 'password'
+    const isSearch = type === 'search'
+    const isPass = type === 'password'
 
-  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    onSetValue && onSetValue(e.currentTarget.value)
-  }
-  const onClearInputText = () => {
-    onSetValue && onSetValue('')
-  }
-  const onShowPass = () => {
-    setIsShowPass(!isShowPass)
-  }
-
-  const iconLeft = isSearch ? <Search /> : null
-  const showIconRight = (
-    isPass: boolean,
-    isShowPass: boolean,
-    isSearch: boolean,
-    value: string = ''
-  ) => {
-    if (isPass) {
-      return isShowPass ? <ShowPass onClick={onShowPass} /> : <UnShowPass onClick={onShowPass} />
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+      onSetValue && onSetValue(e.currentTarget.value)
     }
-    if (isSearch && value) {
-      return <ClearText onClick={onClearInputText} />
+    const onClearInputText = () => {
+      onSetValue && onSetValue('')
+    }
+    const onShowPass = () => {
+      setIsShowPass(!isShowPass)
     }
 
-    return null
-  }
+    const iconLeft = isSearch ? <Search /> : null
+    const showIconRight = (
+      isPass: boolean,
+      isShowPass: boolean,
+      isSearch: boolean,
+      value: string = ''
+    ) => {
+      if (isPass) {
+        return isShowPass ? <ShowPass onClick={onShowPass} /> : <UnShowPass onClick={onShowPass} />
+      }
+      if (isSearch && value) {
+        return <ClearText onClick={onClearInputText} />
+      }
 
-  const stylesInput = {
-    input: isSearch ? s.input + ' ' + s.isSearchIcon : s.input,
-    error: errorMessage! ? s.input + ' ' + s.error : '',
-  }
+      return null
+    }
 
-  return (
-    <div className={s.wrapper}>
-      {label && (
-        <label htmlFor="z1" className={s.label}>
-          {label}
-        </label>
-      )}
-      <div className={`${s.inputWrapper} ${disabled ? s.disabled : ''}`}>
-        <input
-          className={`${stylesInput.input} ${stylesInput.error}`}
-          id="z1"
-          type={isPass && isShowPass ? 'text' : type}
-          value={value}
-          onChange={onChangeHandler}
-          disabled={disabled}
-          {...rest}
-        />
-        <div className={s.inputIconLeft}>{iconLeft}</div>
-        <div className={s.inputIconRight}>{showIconRight(isPass, isShowPass, isSearch, value)}</div>
+    const stylesInput = {
+      input: isSearch ? s.input + ' ' + s.isSearchIcon : s.input,
+      error: errorMessage! ? s.input + ' ' + s.error : '',
+    }
+
+    return (
+      <div className={s.wrapper}>
+        {label && (
+          <label htmlFor="z1" className={s.label}>
+            {label}
+          </label>
+        )}
+        <div className={`${s.inputWrapper} ${disabled ? s.disabled : ''}`}>
+          <input
+            className={`${stylesInput.input} ${stylesInput.error}`}
+            id="z1"
+            type={isPass && isShowPass ? 'text' : type}
+            value={value}
+            onChange={onChangeHandler}
+            disabled={disabled}
+            ref={ref}
+            {...rest}
+          />
+          <div className={s.inputIconLeft}>{iconLeft}</div>
+          <div className={s.inputIconRight}>
+            {showIconRight(isPass, isShowPass, isSearch, value)}
+          </div>
+        </div>
+        {errorMessage && <div className={s.errorMessage}>{errorMessage}</div>}
       </div>
-      {errorMessage && <div className={s.errorMessage}>{errorMessage}</div>}
-    </div>
-  )
-}
+    )
+  }
+)
