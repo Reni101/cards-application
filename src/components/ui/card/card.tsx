@@ -1,14 +1,9 @@
-import { FC, ReactNode } from 'react'
+import { ComponentProps, FC } from 'react'
 
 import s from './card.module.scss'
 
-type CardPropsType = {
-  children: ReactNode
-  className?: string
-}
+type ContainerProps = ComponentProps<'div'>
 
-export const Card: FC<CardPropsType> = ({ children, className }) => {
-  const finalClassName = className ? className : s.card
-
-  return <div className={finalClassName}>{children}</div>
+export const Card: FC<ContainerProps> = ({ className, ...rest }) => {
+  return <div className={`${s.container} ${className}`} {...rest}></div>
 }
