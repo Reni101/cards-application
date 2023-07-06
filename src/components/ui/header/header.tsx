@@ -11,7 +11,7 @@ export const Header = ({ isLoggedIn = false }: PropsType) => {
     <div className={s.container}>
       <Logo />
 
-      {isLoggedIn ? <Button as={'a'}>Sign in</Button> : <div>avatar</div>}
+      {isLoggedIn ? <div>avatar</div> : <Button as={'a'}>Sign in</Button>}
     </div>
   )
 }
