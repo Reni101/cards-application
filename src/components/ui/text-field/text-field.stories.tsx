@@ -26,17 +26,19 @@ const meta = {
     },
     disabled: { control: { type: 'boolean' } },
     errorMessage: { control: { type: 'text' } },
+    placeholder: { control: { type: 'text' } },
   },
 } satisfies Meta<typeof TextField>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Text: Story = {
+export const Default: Story = {
   args: {
     ...meta,
     type: 'text',
-    label: 'text',
+    label: 'Default',
+    placeholder: 'Default',
   },
 }
 
@@ -44,6 +46,8 @@ export const Disabled: Story = {
   args: {
     ...meta,
     disabled: true,
+    label: 'Disable',
+    placeholder: 'Disable',
   },
 }
 
@@ -51,6 +55,8 @@ export const DefaultWithError: Story = {
   args: {
     ...meta,
     errorMessage: 'Error',
+    label: 'Error',
+    placeholder: 'Error',
   },
 }
 
@@ -59,6 +65,7 @@ export const Password: Story = {
     ...meta,
     type: 'password',
     label: 'Password',
+    placeholder: 'Password',
   },
 }
 
@@ -72,5 +79,6 @@ export const Search: Story = {
     ...meta,
     type: 'search',
     label: 'Search',
+    placeholder: 'Search',
   },
 }
