@@ -12,7 +12,7 @@ export function App() {
     <div className={s.container}>
       <Header />
       <TextField value={value} onSetValue={setValue} disabled={false} type="search" label="Input" />
-      <Checkbox label={'Check box'} />
+      <Checkbox disabled={true} label={'Check box'} />
     </div>
   )
 }

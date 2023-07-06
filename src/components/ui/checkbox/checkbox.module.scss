@@ -13,8 +13,8 @@
   align-items: center;
   justify-content: center;
 
-  width: 36px;
-  height: 36px;
+  width: 2.25rem;
+  height: 2.25rem;
   margin: 2px 0;
   padding: inherit;
 
@@ -29,11 +29,6 @@
     background-color: var(--color-dark-100);
   }
 
-  &.disabled {
-    cursor: initial;
-    background-color: inherit;
-  }
-
   &[data-disabled] {
     cursor: initial;
     background-color: inherit;
@@ -45,8 +40,8 @@
   align-items: center;
   justify-content: center;
 
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
 
   background-color: inherit;
   border: 2px solid var(--color-light-900);
@@ -60,7 +55,6 @@
 }
 
 .indicator {
-  // styles for checked icon
   display: flex;
   align-items: center;
   justify-content: center;
