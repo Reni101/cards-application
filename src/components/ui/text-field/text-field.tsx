@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react'
+import { ChangeEvent, ComponentProps, FC, useState } from 'react'
 
 import ClearText from '../../../assets/icons/clearText.tsx'
 import Search from '../../../assets/icons/search.tsx'
@@ -15,10 +15,10 @@ type TextFieldPropsType = {
   onSetValue?: (value: string) => void
   disabled?: boolean
   errorMessage?: string
-}
+} & ComponentProps<'input'>
 
 export const TextField: FC<TextFieldPropsType> = props => {
-  const { type = 'text', label, value, onSetValue, disabled, errorMessage } = props
+  const { type = 'text', label, value, onSetValue, disabled, errorMessage, ...rest } = props
 
   const [isShowPass, setIsShowPass] = useState(false)
 
@@ -52,24 +52,27 @@ export const TextField: FC<TextFieldPropsType> = props => {
     return null
   }
 
+  const stylesInput = {
+    input: isSearch ? s.input + ' ' + s.isSearchIcon : s.input,
+    error: errorMessage! ? s.input + ' ' + s.error : '',
+  }
+
   return (
     <div className={s.wrapper}>
       {label && (
-        <label htmlFor="1" className={s.label}>
+        <label htmlFor="z1" className={s.label}>
           {label}
         </label>
       )}
       <div className={`${s.inputWrapper} ${disabled ? s.disabled : ''}`}>
         <input
-          className={`${isSearch ? s.input + ' ' + s.isSearchIcon : s.input} ${
-            errorMessage! ? s.input + ' ' + s.error : ''
-          }`}
-          id="1"
+          className={`${stylesInput.input} ${stylesInput.error}`}
+          id="z1"
           type={isPass && isShowPass ? 'text' : type}
-          placeholder="text"
           value={value}
           onChange={onChangeHandler}
           disabled={disabled}
+          {...rest}
         />
         <div className={s.inputIconLeft}>{iconLeft}</div>
         <div className={s.inputIconRight}>{showIconRight(isPass, isShowPass, isSearch, value)}</div>
