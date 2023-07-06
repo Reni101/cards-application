@@ -65,6 +65,7 @@
 
 .label {
   cursor: pointer;
+  user-select: none;
 
   &.disabled {
     cursor: initial;
