@@ -18,7 +18,16 @@ type TextFieldPropsType = {
 } & ComponentProps<'input'>
 
 export const TextField: FC<TextFieldPropsType> = props => {
-  const { type = 'text', label, value, onSetValue, disabled, placeholder, errorMessage } = props
+  const {
+    type = 'text',
+    label,
+    value,
+    onSetValue,
+    disabled,
+    placeholder,
+    errorMessage,
+    ...rest
+  } = props
 
   const [isShowPass, setIsShowPass] = useState(false)
 
@@ -52,6 +61,11 @@ export const TextField: FC<TextFieldPropsType> = props => {
     return null
   }
 
+  const stylesInput = {
+    input: isSearch ? s.input + ' ' + s.isSearchIcon : s.input,
+    error: errorMessage! ? s.input + ' ' + s.error : '',
+  }
+
   return (
     <div className={s.wrapper}>
       {label && (
@@ -61,15 +75,14 @@ export const TextField: FC<TextFieldPropsType> = props => {
       )}
       <div className={`${s.inputWrapper} ${disabled ? s.disabled : ''}`}>
         <input
-          className={`${isSearch ? s.input + ' ' + s.isSearchIcon : s.input} ${
-            errorMessage! ? s.input + ' ' + s.error : ''
-          }`}
+          className={`${stylesInput.input} ${stylesInput.error}`}
           id="z1"
           type={isPass && isShowPass ? 'text' : type}
           placeholder={placeholder}
           value={value}
           onChange={onChangeHandler}
           disabled={disabled}
+          {...rest}
         />
         <div className={s.inputIconLeft}>{iconLeft}</div>
         <div className={s.inputIconRight}>{showIconRight(isPass, isShowPass, isSearch, value)}</div>
