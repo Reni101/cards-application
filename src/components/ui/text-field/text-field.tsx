@@ -18,16 +18,7 @@ type TextFieldPropsType = {
 } & ComponentProps<'input'>
 
 export const TextField: FC<TextFieldPropsType> = props => {
-  const {
-    type = 'text',
-    label,
-    value,
-    onSetValue,
-    disabled,
-    placeholder,
-    errorMessage,
-    ...rest
-  } = props
+  const { type = 'text', label, value, onSetValue, disabled, errorMessage, ...rest } = props
 
   const [isShowPass, setIsShowPass] = useState(false)
 
@@ -78,7 +69,6 @@ export const TextField: FC<TextFieldPropsType> = props => {
           className={`${stylesInput.input} ${stylesInput.error}`}
           id="z1"
           type={isPass && isShowPass ? 'text' : type}
-          placeholder={placeholder}
           value={value}
           onChange={onChangeHandler}
           disabled={disabled}
