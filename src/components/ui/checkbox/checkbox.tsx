@@ -13,18 +13,20 @@ type PropsType = {
 }
 
 export const Checkbox = (props: PropsType) => {
+  const disabledClass = `${props.disabled ? s.disabled : ''}`
+
   return (
     <>
       <form>
         <div className={s.container}>
-          <div className={`${s.checkbox_wrapper}  ${props.disabled ? s.disabled : ''} `}>
-            <CheckboxRadix.Root className={s.root} id="c1" {...props}>
+          <CheckboxRadix.Root className={s.root} id="c1" {...props}>
+            <div className={`${s.checkbox} ${disabledClass}`}>
               <CheckboxRadix.Indicator className={s.indicator}>
                 <Checked />
               </CheckboxRadix.Indicator>
-            </CheckboxRadix.Root>
-          </div>
-          <label className={`${s.label}  ${props.disabled ? s.disabled : ''} `} htmlFor="c1">
+            </div>
+          </CheckboxRadix.Root>
+          <label className={`${s.label}  ${disabledClass}`} htmlFor="c1">
             {props.label}
           </label>
         </div>
