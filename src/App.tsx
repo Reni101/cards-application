@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 
 import { LogOut } from './assets/icons/logOut'
@@ -23,6 +22,5 @@ export function App() {
         />
       </div>
     </>
-
   )
 }
