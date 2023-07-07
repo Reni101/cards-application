@@ -12,7 +12,7 @@ import s from './login-form.module.scss'
 
 const schema = z.object({
   email: z.string().trim().email('Invalid email address ').nonempty('Enter email'),
-  password: z.string().trim().nonempty('Enter password').min(3, '3 malo'),
+  password: z.string().trim().nonempty('Enter password').min(3, 'must be 3  characters long'),
   rememberMe: z.boolean().optional(),
 })
 
@@ -71,7 +71,7 @@ export const LoginForm = () => {
           Forgot Password?
         </Typography>
         <Button className={s.button_submit} fullWidth type="submit">
-          Submit
+          Sign in
         </Button>
       </form>
 
