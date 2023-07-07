@@ -25,6 +25,14 @@
   }
 }
 
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .large {
   @include typography(var(--font-size-xxl), var(--line-height-l), var(--font-weight-bold));
 }
