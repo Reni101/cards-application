@@ -1,4 +1,6 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useController, useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 import { Button } from '../../ui/button'
 import { Card } from '../../ui/card'
@@ -8,13 +10,24 @@ import { Typography } from '../../ui/typography'
 
 import s from './login-form.module.scss'
 
-type FormValues = {
-  login: string
-  password: string
-  rememberMe: boolean
-}
+const schema = z.object({
+  email: z.string().trim().email('Invalid email address ').nonempty('Enter email'),
+  password: z.string().trim().nonempty('Enter password').min(3, '3 malo'),
+  rememberMe: z.boolean().optional(),
+})
+
+type FormValues = z.infer<typeof schema>
+
 export const LoginForm = () => {
-  const { register, handleSubmit, control } = useForm<FormValues>()
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<FormValues>({
+    resolver: zodResolver(schema),
+    mode: 'onSubmit',
+  })
 
   const {
     field: { value, onChange },
@@ -34,7 +47,7 @@ export const LoginForm = () => {
         Sign In
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <TextField label={'login'} {...register('login')} />
+        <TextField errorMessage={errors.email?.message} label={'email'} {...register('email')} />
         <TextField label={'password'} type={'password'} {...register('password')} />
         <Checkbox label={'Remember me'} onCheckedChange={onChange} checked={value} />
 
