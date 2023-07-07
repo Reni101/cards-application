@@ -7,15 +7,15 @@
   width: 100%;
   max-width: 26.25rem;
   padding: 2.06rem 2.25rem 1.81rem;
+
+  h2 > {
+    margin-bottom: 0.19rem;
+    text-align: center;
+  }
 }
 
 form {
   width: 100%;
-}
-
-.title {
-  margin-bottom: 0.19rem;
-  text-align: center;
 }
 
 .input {

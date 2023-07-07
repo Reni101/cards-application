@@ -43,7 +43,7 @@ export const LoginForm = () => {
 
   return (
     <Card className={s.container}>
-      <Typography variant={'large'} className={s.title}>
+      <Typography variant={'large'} as={'h2'}>
         Sign In
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
