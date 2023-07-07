@@ -1,10 +1,48 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   max-width: 26.25rem;
-  padding: 33px 36px 29px;
+  padding: 2.06rem 2.25rem 1.81rem;
+}
+
+form {
+  width: 100%;
 }
 
 .title {
   margin-bottom: 0.19rem;
   text-align: center;
+}
+
+.input {
+  width: 100%;
+  margin: 1.5rem auto 0.75rem;
+}
+
+.checkbox {
+  margin-left: -9px;
+}
+
+.forgot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.38rem;
+}
+
+.button_submit {
+  margin: 4.13rem auto 1.25rem;
+}
+
+.text_bottom {
+  margin-bottom: 0.69rem;
+  color: var(--color-light-900) !important;
+  text-align: center;
+}
+
+.link_sign_up {
+  margin: 0 auto;
 }

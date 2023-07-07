@@ -19,7 +19,16 @@ type TextFieldPropsType = {
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
   (props: TextFieldPropsType, ref) => {
-    const { type = 'text', label, value, onSetValue, disabled, errorMessage, ...rest } = props
+    const {
+      type = 'text',
+      label,
+      value,
+      onSetValue,
+      disabled,
+      errorMessage,
+      className = '',
+      ...rest
+    } = props
     const inputId = useId()
 
     const [isShowPass, setIsShowPass] = useState(false)
@@ -60,7 +69,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
     }
 
     return (
-      <div className={s.wrapper}>
+      <div className={`${s.wrapper} ${className}`}>
         {label && (
           <label htmlFor={inputId} className={s.label}>
             {label}

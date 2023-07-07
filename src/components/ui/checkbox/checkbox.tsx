@@ -15,13 +15,14 @@ type PropsType = {
 }
 
 export const Checkbox = (props: PropsType) => {
+  const { className = '', ...restProps } = props
   const checkboxId = useId()
   const disabledClass = `${props.disabled ? s.disabled : ''}`
 
   return (
     <>
-      <div className={s.container}>
-        <CheckboxRadix.Root className={s.root} id={checkboxId} {...props}>
+      <div className={`${s.container} ${className}`}>
+        <CheckboxRadix.Root className={s.root} id={checkboxId} {...restProps}>
           <div className={`${s.checkbox} ${disabledClass}`}>
             <CheckboxRadix.Indicator className={s.indicator}>
               <Checked />

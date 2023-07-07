@@ -47,22 +47,41 @@ export const LoginForm = () => {
         Sign In
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <TextField errorMessage={errors.email?.message} label={'email'} {...register('email')} />
         <TextField
+          className={s.input}
+          errorMessage={errors.email?.message}
+          label={'email'}
+          {...register('email')}
+        />
+        <TextField
+          className={s.input}
           errorMessage={errors.password?.message}
           label={'password'}
           type={'password'}
           {...register('password')}
         />
-        <Checkbox label={'Remember me'} onCheckedChange={onChange} checked={value} />
+        <Checkbox
+          className={s.checkbox}
+          label={'Remember me'}
+          onCheckedChange={onChange}
+          checked={value}
+        />
 
-        <Typography variant={'body2'} as={'a'} href={'/'}>
+        <Typography className={s.forgot} variant={'body2'} as={'a'} href={'/'}>
           Forgot Password?
         </Typography>
-        <Button className={s.button1} fullWidth type="submit">
+        <Button className={s.button_submit} fullWidth type="submit">
           Submit
         </Button>
       </form>
+
+      <Typography className={s.text_bottom} variant={'body2'}>
+        Don`t have an account?
+      </Typography>
+
+      <Button variant={'link'} as={'a'} href={'/'} className={s.link_sign_up}>
+        Sign up
+      </Button>
     </Card>
   )
 }

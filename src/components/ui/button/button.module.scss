@@ -103,24 +103,24 @@
   @include button;
 
   font-size: var(--font-size-m);
-  color: var(--color-accent-500);
+  color: var(--color-accent-500) !important;
   background-color: inherit;
   box-shadow: none;
 
   &:focus-visible {
     border-radius: 20px;
-    outline: 2px solid var(--color-info-700);
+    outline: 2px solid var(--color-info-700) !important;
   }
 
   &:hover {
-    color: var(--color-accent-300);
+    color: var(--color-accent-300) !important;
   }
 
   &:active {
-    color: var(--color-accent-700);
+    color: var(--color-accent-700) !important;
   }
 
   &:disabled {
-    color: var(--color-accent-900);
+    color: var(--color-accent-900) !important;
   }
 }
