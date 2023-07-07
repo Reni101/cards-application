@@ -48,13 +48,18 @@ export const LoginForm = () => {
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField errorMessage={errors.email?.message} label={'email'} {...register('email')} />
-        <TextField label={'password'} type={'password'} {...register('password')} />
+        <TextField
+          errorMessage={errors.password?.message}
+          label={'password'}
+          type={'password'}
+          {...register('password')}
+        />
         <Checkbox label={'Remember me'} onCheckedChange={onChange} checked={value} />
 
         <Typography variant={'body2'} as={'a'} href={'/'}>
           Forgot Password?
         </Typography>
-        <Button fullWidth type="submit">
+        <Button className={s.button1} fullWidth type="submit">
           Submit
         </Button>
       </form>

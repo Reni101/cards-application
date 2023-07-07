@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
+import { ChangeEvent, ComponentPropsWithoutRef, forwardRef, useId, useState } from 'react'
 
 import ClearText from '../../../assets/icons/clearText.tsx'
 import Search from '../../../assets/icons/search.tsx'
@@ -20,6 +20,7 @@ type TextFieldPropsType = {
 export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
   (props: TextFieldPropsType, ref) => {
     const { type = 'text', label, value, onSetValue, disabled, errorMessage, ...rest } = props
+    const inputId = useId()
 
     const [isShowPass, setIsShowPass] = useState(false)
 
@@ -61,14 +62,14 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
     return (
       <div className={s.wrapper}>
         {label && (
-          <label htmlFor="z1" className={s.label}>
+          <label htmlFor={inputId} className={s.label}>
             {label}
           </label>
         )}
         <div className={`${s.inputWrapper} ${disabled ? s.disabled : ''}`}>
           <input
             className={`${stylesInput.input} ${stylesInput.error}`}
-            id="z1"
+            id={inputId}
             type={isPass && isShowPass ? 'text' : type}
             value={value}
             onChange={onChangeHandler}

@@ -1,3 +1,5 @@
+import { useId } from 'react'
+
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 
 import { Checked } from '../../../assets/icons/cheked'
@@ -13,19 +15,20 @@ type PropsType = {
 }
 
 export const Checkbox = (props: PropsType) => {
+  const checkboxId = useId()
   const disabledClass = `${props.disabled ? s.disabled : ''}`
 
   return (
     <>
       <div className={s.container}>
-        <CheckboxRadix.Root className={s.root} id="c1" {...props}>
+        <CheckboxRadix.Root className={s.root} id={checkboxId} {...props}>
           <div className={`${s.checkbox} ${disabledClass}`}>
             <CheckboxRadix.Indicator className={s.indicator}>
               <Checked />
             </CheckboxRadix.Indicator>
           </div>
         </CheckboxRadix.Root>
-        <label className={`${s.label}  ${disabledClass}`} htmlFor="c1">
+        <label className={`${s.label}  ${disabledClass}`} htmlFor={checkboxId}>
           {props.label}
         </label>
       </div>
