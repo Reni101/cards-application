@@ -4,11 +4,11 @@ import { Header } from './components/ui/header'
 
 export function App() {
   return (
-    <div className={s.container}>
+    <>
       <Header />
-      <div className={s.flex}>
+      <div className={s.container}>
         <LoginForm />
       </div>
-    </div>
+    </>
   )
 }

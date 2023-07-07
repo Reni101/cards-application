@@ -1,8 +1,14 @@
+.wrapper {
+  height: 60px;
+  background-color: var(--color-dark-700);
+}
+
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  height: 60px;
-  padding: 0 10px;
+  max-width: 1008px;
+  height: 100%;
+  margin: 0 auto;
 }

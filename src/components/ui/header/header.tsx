@@ -8,10 +8,12 @@ type PropsType = {
 }
 export const Header = ({ isLoggedIn = false }: PropsType) => {
   return (
-    <div className={s.container}>
-      <Logo />
+    <div className={s.wrapper}>
+      <div className={s.container}>
+        <Logo />
 
-      {isLoggedIn ? <div>avatar</div> : <Button as={'a'}>Sign in</Button>}
+        {isLoggedIn ? <div>avatar</div> : <Button as={'a'}>Sign in</Button>}
+      </div>
     </div>
   )
 }

@@ -1,11 +1,6 @@
 .container {
-  max-width: 1008px;
-  height: 100vh;
-  margin: 0 auto;
-}
-
-.flex {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  max-width: 1008px;
+  margin: 60px auto;
 }
