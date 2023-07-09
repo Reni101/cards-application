@@ -1,0 +1,19 @@
+.container {
+  max-width: 26.25rem;
+  width: 100%;
+
+  text-align: center;
+
+  padding: 2.31rem 2.25rem 2.75rem;
+  .title {
+    margin-bottom: 27px;
+  }
+  .icon {
+    margin-bottom: 19px;
+  }
+  .body2 {
+    color: var(--color-light-900);
+    opacity: 0.5;
+    margin-bottom: 65px;
+  }
+}
