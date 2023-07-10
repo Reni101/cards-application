@@ -6,17 +6,6 @@ const meta = {
   title: 'Auth/CheckEmail',
   component: CheckEmail,
   tags: ['autodocs'],
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-      values: [
-        {
-          name: 'dark',
-          value: '#000',
-        },
-      ],
-    },
-  },
   argTypes: {
     email: { control: { type: 'text' } },
   },
