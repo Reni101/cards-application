@@ -17,12 +17,16 @@ const schema = z
   })
   .refine(data => data.password === data.confirmPassword, {
     message: "Passwords don't match",
-    path: ['confirmPassword'], // path of error
+    path: ['confirmPassword'],
   })
 
 type FormValues = z.infer<typeof schema>
 
-export const RegisterForm = () => {
+type PropsType = {
+  onSubmit?: (data: FormValues) => void
+}
+
+export const RegisterForm = (props: PropsType) => {
   const {
     register,
     handleSubmit,
@@ -33,7 +37,7 @@ export const RegisterForm = () => {
   })
 
   const onSubmit = (data: FormValues) => {
-    console.log(data)
+    props.onSubmit && props.onSubmit(data)
   }
 
   return (

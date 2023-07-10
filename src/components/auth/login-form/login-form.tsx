@@ -12,13 +12,17 @@ import s from './login-form.module.scss'
 
 const schema = z.object({
   email: z.string().trim().email('Invalid email address ').nonempty('Enter email'),
-  password: z.string().trim().nonempty('Enter password').min(3, 'must be 3  characters long'),
+  password: z.string().trim().nonempty('Enter password').min(3, 'Must be 3  characters long'),
   rememberMe: z.boolean().optional(),
 })
 
 type FormValues = z.infer<typeof schema>
 
-export const LoginForm = () => {
+type PropsType = {
+  onSubmit?: (data: FormValues) => void
+}
+
+export const LoginForm = (props: PropsType) => {
   const {
     register,
     handleSubmit,
@@ -38,7 +42,7 @@ export const LoginForm = () => {
   })
 
   const onSubmit = (data: FormValues) => {
-    console.log(data)
+    props.onSubmit && props.onSubmit(data)
   }
 
   return (
