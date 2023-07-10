@@ -47,14 +47,14 @@ export const ForgotPassword = (props: PropsType) => {
           errorMessage={errors.email?.message}
           {...register('email')}
         />
-        <Typography variant="body2" className={s.body2}>
-          Enter your email address and we will send you further instructions{' '}
+        <Typography variant="body2" className={s.description}>
+          Enter your email address and we will send you further instructions
         </Typography>
         <Button className={s.button} fullWidth type="submit">
           Send Instructions
         </Button>
       </form>
-      <Typography variant="body2" className={s.body2}>
+      <Typography variant="body2" className={s.bottomText}>
         Did you remember your password?
       </Typography>
       <Button variant={'link'} as={'a'} href={'#'} className={s.link}>
