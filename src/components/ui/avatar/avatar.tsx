@@ -7,15 +7,16 @@ type PropsType = {
   src?: string
   size?: 'large' | 'small'
   fallback: string
+  className?: string
 }
 
 export const Avatar = (props: PropsType) => {
-  const { size = 'small' } = props
+  const { size = 'small', className = '' } = props
   const isSmall = size === 'small'
 
   return (
     <>
-      <AvatarRadix.Root className={`${s.avatar_root} ${isSmall && s.avatar_small}`}>
+      <AvatarRadix.Root className={`${s.avatar_root} ${isSmall && s.avatar_small} ${className}`}>
         <AvatarRadix.Image src={props.src} className={s.avatar_img} />
         <AvatarRadix.Fallback>{nameTrimming(props.fallback)}</AvatarRadix.Fallback>
       </AvatarRadix.Root>
