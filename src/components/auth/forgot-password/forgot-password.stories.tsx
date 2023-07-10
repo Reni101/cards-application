@@ -6,17 +6,6 @@ const meta = {
   title: 'Auth/ForgotPassword',
   component: ForgotPassword,
   tags: ['autodocs'],
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-      values: [
-        {
-          name: 'dark',
-          value: '#000',
-        },
-      ],
-    },
-  },
   argTypes: {},
 } satisfies Meta<typeof ForgotPassword>
 
