@@ -17,7 +17,7 @@ export const CheckEmail = (props: PropsType) => {
         Check Email
       </Typography>
       <EmailCheck className={s.icon} />
-      <Typography variant="body2" className={s.body2}>
+      <Typography variant="body2" className={s.description}>
         {`We’ve sent an Email with instructions to ${email}`}
       </Typography>
       <Button className={s.button} fullWidth variant="primary">
