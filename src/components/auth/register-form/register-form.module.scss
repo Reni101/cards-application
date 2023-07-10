@@ -2,29 +2,37 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 26.25rem;
+
   width: 100%;
-  padding: 33px 36px 29px;
-  > h2 {
-    margin-bottom: 27px;
+  max-width: 26.25rem;
+  padding: 2.063rem 2.25rem 1.813px;
+
+  & > h2 {
+    margin-bottom: 1.688rem;
   }
+
   > form {
     width: 100%;
+
     .input {
       &:not(:nth-child(3)) {
-        margin-bottom: 24px;
+        margin-bottom: 1.5rem;
       }
-      &:nth-child(3) {
-        margin-bottom: 60px;
+
+      s &:nth-child(3) {
+        margin-bottom: 3.75rem;
       }
     }
+
     .button_submit {
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem;
     }
   }
+
   .text_bottom {
-    margin-bottom: 11px;
+    margin-bottom: 0.688rem;
   }
+
   .link_sign_in {
     text-decoration: underline;
   }
