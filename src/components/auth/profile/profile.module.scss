@@ -7,51 +7,15 @@
   width: 100%;
 
   padding: 2.06rem 5.75rem 2.56rem 5rem;
+
   .title {
-    width: 248px;
-    margin-bottom: 27px;
+    width: 15.5rem;
+    margin-bottom: 1.69rem;
   }
-  .avatar {
-    position: relative;
 
-    width: 96px;
-    height: 96px;
 
-    border-radius: 50%;
-
-    background-color: var(--color-accent-100);
-
-    margin-bottom: 6px;
-    .editWrapper {
-      position: absolute;
-
-      right: 0;
-      bottom: 0;
-
-      padding: 0;
-
-      width: 24px;
-      height: 24px;
-    }
-  }
-  .userInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .userName {
-      display: flex;
-      align-items: center;
-      justify-content: end;
-      gap: 9px;
-
-      padding-left: 23px;
-    }
-    .email {
-      color: var(--color-dark-100);
-      margin-bottom: 13px;
-    }
-  }
 }
-.edit {
-  cursor: pointer;
+
+.changeInfo {
+  padding: 2.06rem 2.25rem 5.25rem;
 }
