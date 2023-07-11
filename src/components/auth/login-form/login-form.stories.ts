@@ -6,9 +6,7 @@ const meta = {
   title: 'Auth/LoginForm',
   component: LoginForm,
   tags: ['autodocs'],
-  argTypes: {
-    control: { type: 'radio' },
-  },
+  argTypes: {},
 } satisfies Meta<typeof LoginForm>
 
 export default meta

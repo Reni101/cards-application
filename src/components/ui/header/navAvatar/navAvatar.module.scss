@@ -1,0 +1,36 @@
+.avatar {
+  display: flex;
+  gap: 0.88rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  border-bottom: var(--color-light-100) dashed;
+}
+
+.email {
+  color: var(--color-dark-100) !important;
+}
+
+.info {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.5rem 20px 0.5rem 0;
+}
+
+.item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem 0.3rem;
+}
+
+.item:hover {
+  cursor: pointer;
+  background-color: var(--color-dark-300);
+  border-radius: 2px;
+}
