@@ -13,9 +13,42 @@
     margin-bottom: 1.69rem;
   }
 
+  .avatar {
+    position: relative;
 
+    margin-bottom: 0.38rem;
+
+    .editWrapper {
+      position: absolute;
+
+      right: 0;
+      bottom: 0;
+
+      padding: 0;
+
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .profileInfo {
+    width: 100%;
+    margin: 0 2.25rem;
+  }
 }
 
 .changeInfo {
   padding: 2.06rem 2.25rem 5.25rem;
+
+  .title {
+    margin-right: 0.75rem;
+  }
+
+  .avatar {
+    margin-right: 0.75rem;
+  }
+
+  .editWrapper {
+    display: none;
+  }
 }
