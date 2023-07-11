@@ -39,7 +39,7 @@ export const ChangePassword = (props: PropsType) => {
   }
 
   return (
-    <Card className={s.containre}>
+    <Card className={s.container}>
       <Typography variant="large" className={s.title}>
         Create new password
       </Typography>
