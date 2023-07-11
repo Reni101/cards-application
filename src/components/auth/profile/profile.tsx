@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+import Edit from '../../../assets/icons/edit.tsx'
+import { Avatar } from '../../ui/avatar'
+import { Button } from '../../ui/button'
 import { Card } from '../../ui/card'
 import { Typography } from '../../ui/typography'
 
@@ -8,27 +11,30 @@ import { ProfileInfo } from './profile-info/profile-info.tsx'
 import s from './profile.module.scss'
 
 export const Profile = () => {
-  const [edit, setEdit] = useState(false)
+  const [isEdit, setIsEdit] = useState(false)
 
   return (
-    <Card className={`${s.container} ${edit && s.changeInfo}`}>
+    <Card className={`${s.container} ${isEdit && s.changeInfo}`}>
       <Typography variant="large" className={s.title}>
         Personal Information
       </Typography>
-      {edit ? (
-        <EditProfileInfo
-          avatar="https://zamanilka.ru/wp-content/uploads/2023/05/ava-baby-290523-2-1024x1024.jpg"
-          onCloseEdit={setEdit}
-          name="Kirill"
+      <div className={s.avatar}>
+        <Avatar
+          fallback="kirill"
+          size="large"
+          src="https://zamanilka.ru/wp-content/uploads/2023/05/ava-baby-290523-2-1024x1024.jpg"
         />
-      ) : (
-        <ProfileInfo
-          onEdit={setEdit}
-          avatar="https://zamanilka.ru/wp-content/uploads/2023/05/ava-baby-290523-2-1024x1024.jpg"
-          email="test@gmail.com"
-          name="Kirill"
-        />
-      )}
+        <Button className={s.editWrapper} variant="secondary">
+          <Edit />
+        </Button>
+      </div>
+      <div className={s.profileInfo}>
+        {isEdit ? (
+          <EditProfileInfo onCloseEdit={setIsEdit} name="Kirill" />
+        ) : (
+          <ProfileInfo onEdit={setIsEdit} email="test@gmail.com" name="Kirill" />
+        )}
+      </div>
     </Card>
   )
 }
