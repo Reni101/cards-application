@@ -1,6 +1,5 @@
 import Edit from '../../../../assets/icons/edit.tsx'
 import { LogOut } from '../../../../assets/icons/logOut.tsx'
-import { Avatar } from '../../../ui/avatar'
 import { Button } from '../../../ui/button'
 import { Typography } from '../../../ui/typography'
 
@@ -10,23 +9,15 @@ type PropsType = {
   onEdit: (edit: boolean) => void
   name: string
   email: string
-  avatar: string
 }
 export const ProfileInfo = (props: PropsType) => {
-  const { onEdit, name, email, avatar } = props
+  const { onEdit, name, email } = props
   const onOpenEditHandler = () => {
     onEdit(true)
   }
 
   return (
     <div className={s.userInfo}>
-      <div className={s.avatar}>
-        <Avatar fallback={name} size="large" src={avatar} />
-        <Button className={s.editWrapper} variant="secondary">
-          <Edit />
-        </Button>
-      </div>
-
       <div className={s.userName}>
         <Typography variant="h1" as="h1" className={s.name}>
           {name}
