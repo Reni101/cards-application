@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 26.25rem;
+  width: 100%;
+
+  padding: 2.06rem 5.75rem 2.56rem 5rem;
+
+  .title {
+    width: 15.5rem;
+    margin-bottom: 1.69rem;
+  }
+
+  .avatar {
+    position: relative;
+
+    margin-bottom: 0.38rem;
+
+    .editWrapper {
+      position: absolute;
+
+      right: 0;
+      bottom: 0;
+
+      padding: 0;
+
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .profileInfo {
+    width: 100%;
+    margin: 0 2.25rem;
+  }
+}
+
+.changeInfo {
+  padding: 2.06rem 2.25rem 5.25rem;
+
+  .title {
+    margin-right: 0.75rem;
+  }
+
+  .avatar {
+    margin-right: 0.75rem;
+  }
+
+  .editWrapper {
+    display: none;
+  }
+}
