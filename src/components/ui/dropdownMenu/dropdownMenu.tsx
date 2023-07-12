@@ -12,6 +12,13 @@ type PropsType = {
 export const DropdownMenu = (props: PropsType) => {
   const { className = '', options, children } = props
 
+  const menuForRender = options.map((el, index) => (
+    <div key={index}>
+      <DropdownMenuRadix.Item className={s.item}>{el}</DropdownMenuRadix.Item>
+      {index !== options.length - 1 && <DropdownMenuRadix.Separator className={s.separator} />}
+    </div>
+  ))
+
   return (
     <DropdownMenuRadix.Root>
       <DropdownMenuRadix.Trigger asChild>
@@ -22,14 +29,7 @@ export const DropdownMenu = (props: PropsType) => {
 
       <DropdownMenuRadix.Portal>
         <DropdownMenuRadix.Content className={`${s.content_container} ${className}`}>
-          {options.map((el, index) => (
-            <div key={index}>
-              <DropdownMenuRadix.Item className={s.item}>{el}</DropdownMenuRadix.Item>
-              {index !== options.length - 1 && (
-                <DropdownMenuRadix.Separator className={s.separator} />
-              )}
-            </div>
-          ))}
+          {menuForRender}
         </DropdownMenuRadix.Content>
       </DropdownMenuRadix.Portal>
     </DropdownMenuRadix.Root>
