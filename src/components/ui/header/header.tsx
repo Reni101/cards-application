@@ -2,6 +2,7 @@ import { Logo } from '../../../assets/icons/logo'
 import { Button } from '../button'
 
 import s from './header.module.scss'
+import { NavAvatar } from './navAvatar'
 
 type PropsType = {
   isLoggedIn?: boolean
@@ -12,7 +13,7 @@ export const Header = ({ isLoggedIn = false }: PropsType) => {
       <div className={s.container}>
         <Logo />
 
-        {isLoggedIn ? <div>avatar</div> : <Button as={'a'}>Sign in</Button>}
+        {isLoggedIn ? <NavAvatar /> : <Button as={'a'}>Sign in</Button>}
       </div>
     </div>
   )
