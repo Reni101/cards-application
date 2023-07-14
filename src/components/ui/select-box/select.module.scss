@@ -1,19 +1,31 @@
-button {
-  all: unset;
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: max-content;
+
+  & .label {
+    color: var(--color-dark-100);
+  }
+
+  & .disabled {
+    color: var(--color-dark-300);
+  }
 }
 
 .SelectTrigger {
+  all: unset;
+
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   align-items: center;
   justify-content: space-between;
 
-  width: calc(100% - 26px);
-  height: 24px;
-  padding: 6px 12px;
+  min-width: max-content;
+  height: 1.375rem;
+  padding: 0.375rem 0.75rem;
 
   border: 1px solid var(--color-dark-300);
-  border-radius: 2px 2px 0 0;
+  border-radius: 2px;
 
   &:hover:not(&[data-disabled]) {
     cursor: pointer;
@@ -30,8 +42,8 @@ button {
 }
 
 .SelectIcon {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
 }
 
 .SelectTrigger[data-state='open'] {
@@ -41,27 +53,20 @@ button {
 }
 
 .SelectContent {
-  overflow: hidden;
-
   width: var(--radix-select-trigger-width);
   max-height: var(--radix-select-content-available-height);
-
-  background-color: inherit;
   border: 1px solid var(--color-dark-300);
   border-radius: 2px;
 }
 
 .SelectItem {
   cursor: pointer;
-  user-select: none;
-
-  position: relative;
 
   display: flex;
   align-items: center;
   justify-content: flex-start;
 
-  padding: 6px 12px;
+  padding: 0.375rem 0.75rem;
 }
 
 .SelectItem[data-disabled] {

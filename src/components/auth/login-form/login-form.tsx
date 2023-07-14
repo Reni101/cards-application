@@ -5,7 +5,6 @@ import { z } from 'zod'
 import { Button } from '../../ui/button'
 import { Card } from '../../ui/card'
 import { Checkbox } from '../../ui/checkbox'
-import { Select } from '../../ui/select-box'
 import { TextField } from '../../ui/text-field'
 import { Typography } from '../../ui/typography'
 
@@ -87,8 +86,6 @@ export const LoginForm = (props: PropsType) => {
       <Button variant={'link'} as={'a'} href={'/'} className={s.link_sign_up}>
         Sign up
       </Button>
-
-      <Select />
     </Card>
   )
 }
