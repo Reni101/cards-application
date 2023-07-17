@@ -11,7 +11,7 @@ type PropsType = {
 }
 export const ModalTitle = (props: PropsType) => {
   const { title, className } = props
-  const styles = `${className ? `${s.buttonContainer} ${className}` : s.buttonContainer}`
+  const styles = `${className ? `${s.titleContainer} ${className}` : s.titleContainer}`
 
   return (
     <Dialog.Title asChild>
