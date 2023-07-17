@@ -3,6 +3,9 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '../button'
+import { Typography } from '../typography'
+
+import { ModalConfirm } from './modal-confirm'
 
 import { Modal } from './'
 
@@ -14,8 +17,6 @@ const meta = {
     children: { control: { type: 'ReactNode' } },
     trigger: { control: { type: 'ReactNode' } },
     title: { control: { type: 'text' } },
-    btnName: { control: { type: 'text' } },
-    isShowBtn: { control: { type: 'boolean' } },
   },
 } satisfies Meta<typeof Modal>
 
@@ -52,7 +53,7 @@ export const ModalTitle: Story = {
       </p>
     ),
     trigger: <Button>Open Modal</Button>,
-    title: 'Edit Card',
+    title: 'Delete Card',
   },
   render: ({ children, trigger, title }) => {
     const [isOpen, setIsOpen] = useState(false)
@@ -67,32 +68,30 @@ export const ModalTitle: Story = {
   },
 }
 
-export const ModalButtons: Story = {
+export const ModalAndConfirm: Story = {
   args: {
-    children: (
-      <p style={{ maxWidth: '310px', margin: '0' }}>
-        Do you really want to remove Card Name? All cards will be deleted.
-      </p>
-    ),
     trigger: <Button>Open Modal</Button>,
-    title: 'Edit Card',
-    btnName: 'Save Edit',
-    isShowBtn: true,
+    title: 'Delete Card',
   },
-  render: ({ children, trigger, title, btnName, isShowBtn }) => {
+  render: ({ trigger, title }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
       <>
-        <Modal
-          trigger={trigger}
-          isOpen={isOpen}
-          onOpenChange={setIsOpen}
-          title={title}
-          btnName={btnName}
-          isShowBtn={isShowBtn}
-        >
-          {children}
+        <Modal trigger={trigger} isOpen={isOpen} onOpenChange={setIsOpen} title={title}>
+          <>
+            <p style={{ maxWidth: '310px', margin: '0', marginBottom: '1.12rem' }}>
+              Do you really want to remove Card Name? All cards will be deleted.
+            </p>
+            <ModalConfirm>
+              <Button variant="secondary" onClick={() => setIsOpen(false)}>
+                <Typography variant="subtitle2">Cancel</Typography>
+              </Button>
+              <Button variant="primary" onClick={() => setIsOpen(false)}>
+                <Typography variant="subtitle2">Delete Card</Typography>
+              </Button>
+            </ModalConfirm>
+          </>
         </Modal>
       </>
     )
