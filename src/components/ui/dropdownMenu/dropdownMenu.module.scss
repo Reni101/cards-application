@@ -18,8 +18,8 @@
   margin-top: 10px;
   margin-right: 0;
 
-  background-color: var(--color-dark-500);
-  border: 1px solid var(--color-dark-100);
+  background-color: var(--color-dark-700);
+  border: 1px solid var(--color-dark-500);
   border-radius: 4px;
 }
 
@@ -35,6 +35,6 @@
 .separator {
   width: calc(100% - 0.625rem);
   height: 1px;
-  margin: 1px auto;
-  background-color: var(--color-dark-100);
+  margin: 0 auto;
+  background-color: var(--color-dark-500);
 }

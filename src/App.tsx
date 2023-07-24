@@ -5,7 +5,7 @@ import { Header } from './components/ui/header'
 export function App() {
   return (
     <>
-      <Header isLoggedIn={true} />
+      <Header isLoggedIn={false} />
       <div className={s.container}>
         <LoginForm />
       </div>
