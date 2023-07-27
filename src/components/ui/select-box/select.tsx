@@ -13,24 +13,24 @@ type PropsType = {
   defaultValue?: string
   onValueChange?: (value: string) => void
   value?: string
-  className?: string
   placeholder?: string
   showIcon?: boolean
   label?: string
-  size?: 'small' | 'large'
+  className?: string
+  classNameForTrigger?: string
 }
 
 export const Select = (props: PropsType) => {
   const { showIcon = true } = props
 
   const itemForRender = props.options?.map((el, index) => (
-    <SelectItem className={props.className} value={el.value} key={index}>
+    <SelectItem className={props.classNameForTrigger} value={el.value} key={index}>
       {el.label}
     </SelectItem>
   ))
 
   return (
-    <div className={s.container}>
+    <div className={`${s.container} ${props.className ?? ''}`}>
       {props.label && (
         <Typography
           as={'span'}
@@ -47,7 +47,7 @@ export const Select = (props: PropsType) => {
         defaultValue={props.defaultValue}
       >
         <SelectRadix.Trigger
-          className={`${s.SelectTrigger} ${props.className ?? ''}`}
+          className={`${s.SelectTrigger} ${props.classNameForTrigger ?? ''}`}
           disabled={props.disabled}
         >
           <SelectRadix.Value />
