@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Pagination } from './'
@@ -23,15 +25,32 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const PaginationStories: Story = {
+  render: args => {
+    const [page, setPage] = useState(1)
+    const [rows, setRows] = useState('30')
+
+    const onPageChanged = (pageNumber: number) => {
+      setPage(pageNumber)
+    }
+    const onChangeRows = (value: string) => {
+      setRows(value)
+    }
+
+    return (
+      <>
+        <Pagination
+          {...args}
+          currentPage={page}
+          rowsValue={rows}
+          changePage={onPageChanged}
+          changeRows={onChangeRows}
+        />
+      </>
+    )
+  },
   args: {
-    currentPage: 1,
     pageCount: 10,
-    changePage: (value: number) => {
-      console.log(value)
-    },
-    changeRows: (value: string) => {
-      console.log(value)
-    },
+    currentPage: 1,
     rowsValue: '10',
   },
 }
