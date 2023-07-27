@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 
 import * as SelectRadix from '@radix-ui/react-select'
 
-import ArrowDown from '../../../assets/icons/arrowDown'
+import Arrow from '../../../assets/icons/arrow'
 import { Typography } from '../typography'
 
 import s from './select.module.scss'
@@ -17,19 +17,20 @@ type PropsType = {
   placeholder?: string
   showIcon?: boolean
   label?: string
+  size?: 'small' | 'large'
 }
 
 export const Select = (props: PropsType) => {
   const { showIcon = true } = props
 
   const itemForRender = props.options?.map((el, index) => (
-    <SelectItem value={el.value} key={index}>
+    <SelectItem className={props.className} value={el.value} key={index}>
       {el.label}
     </SelectItem>
   ))
 
   return (
-    <div className={`${s.container} ${props.className ?? ''}`}>
+    <div className={s.container}>
       {props.label && (
         <Typography
           as={'span'}
@@ -52,7 +53,7 @@ export const Select = (props: PropsType) => {
           <SelectRadix.Value />
           {showIcon && (
             <SelectRadix.Icon className={s.SelectIcon}>
-              <ArrowDown />
+              <Arrow />
             </SelectRadix.Icon>
           )}
         </SelectRadix.Trigger>
