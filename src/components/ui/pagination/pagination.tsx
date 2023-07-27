@@ -45,6 +45,7 @@ export const Pagination = (props: PropsType) => {
         currentPage={props.currentPage}
         handleMainPageClicked={handleMainPageClicked}
       />
+
       <Button onClick={handleNextPageClicked} className={s.arrowButton} disabled={isLastPage}>
         <Arrow />
       </Button>
