@@ -1,7 +1,5 @@
 import * as TabsRadix from '@radix-ui/react-tabs'
 
-import { Typography } from '../typography'
-
 import s from './tabs.module.scss'
 
 type TabType = {
@@ -17,9 +15,9 @@ export type PropsType = {
   value?: string
   onValueChange: (value: string) => void
 }
-export const Tabs = (porps: PropsType) => {
-  const { tabs, value, onValueChange, defaultValue, className } = porps
-  const styles = className ? `${s.root} ${className}` : s.root
+export const Tabs = (props: PropsType) => {
+  const { tabs, value, onValueChange, defaultValue, className = '' } = props
+  const styles = `${s.root} ${className}`
 
   return (
     <TabsRadix.Root
@@ -38,7 +36,7 @@ export const Tabs = (porps: PropsType) => {
               disabled={el.disabled}
               asChild
             >
-              <Typography variant="body1">{el.tabName}</Typography>
+              <div> {el.tabName}</div>
             </TabsRadix.Trigger>
           )
         })}

@@ -37,7 +37,7 @@ export const Default: Story = {
   },
 }
 
-export const Desabled: Story = {
+export const Disabled: Story = {
   args: {
     tabs: [
       { value: '123', tabName: 'switcher' },
