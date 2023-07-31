@@ -53,7 +53,7 @@ export const Pagination = (props: PropsType) => {
       <Typography as={'div'} variant={'body2'} className={s.selectContainer}>
         Показать
         <Select
-          classNameForTrigger={s.selectBox}
+          classNameTrigger={s.selectBox}
           options={options}
           value={props.rowsValue}
           onValueChange={props.changeRows}

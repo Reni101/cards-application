@@ -17,14 +17,14 @@ type PropsType = {
   showIcon?: boolean
   label?: string
   className?: string
-  classNameForTrigger?: string
+  classNameTrigger?: string
 }
 
 export const Select = (props: PropsType) => {
   const { showIcon = true } = props
 
   const itemForRender = props.options?.map((el, index) => (
-    <SelectItem className={props.classNameForTrigger} value={el.value} key={index}>
+    <SelectItem className={props.classNameTrigger} value={el.value} key={index}>
       {el.label}
     </SelectItem>
   ))
@@ -47,7 +47,7 @@ export const Select = (props: PropsType) => {
         defaultValue={props.defaultValue}
       >
         <SelectRadix.Trigger
-          className={`${s.SelectTrigger} ${props.classNameForTrigger ?? ''}`}
+          className={`${s.SelectTrigger} ${props.classNameTrigger ?? ''}`}
           disabled={props.disabled}
         >
           <SelectRadix.Value />
