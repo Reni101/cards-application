@@ -2,7 +2,7 @@ import { useId } from 'react'
 
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 
-import { Checked } from '../../../assets/icons/cheked'
+import Checked from '../../../assets/icons/cheked'
 
 import s from './checkbox.module.scss'
 

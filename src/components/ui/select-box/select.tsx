@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 
 import * as SelectRadix from '@radix-ui/react-select'
 
-import ArrowDown from '../../../assets/icons/arrowDown'
+import Arrow from '../../../assets/icons/arrow'
 import { Typography } from '../typography'
 
 import s from './select.module.scss'
@@ -13,17 +13,18 @@ type PropsType = {
   defaultValue?: string
   onValueChange?: (value: string) => void
   value?: string
-  className?: string
   placeholder?: string
   showIcon?: boolean
   label?: string
+  className?: string
+  classNameTrigger?: string
 }
 
 export const Select = (props: PropsType) => {
   const { showIcon = true } = props
 
   const itemForRender = props.options?.map((el, index) => (
-    <SelectItem value={el.value} key={index}>
+    <SelectItem className={props.classNameTrigger} value={el.value} key={index}>
       {el.label}
     </SelectItem>
   ))
@@ -46,13 +47,13 @@ export const Select = (props: PropsType) => {
         defaultValue={props.defaultValue}
       >
         <SelectRadix.Trigger
-          className={`${s.SelectTrigger} ${props.className ?? ''}`}
+          className={`${s.SelectTrigger} ${props.classNameTrigger ?? ''}`}
           disabled={props.disabled}
         >
           <SelectRadix.Value />
           {showIcon && (
             <SelectRadix.Icon className={s.SelectIcon}>
-              <ArrowDown />
+              <Arrow />
             </SelectRadix.Icon>
           )}
         </SelectRadix.Trigger>
