@@ -1,21 +1,17 @@
 import * as Dialog from '@radix-ui/react-dialog'
 
-import ClearText from '../../../../assets/icons/clearText.tsx'
+import ClearText from '../../../../assets/icons/clearText'
 import { Typography } from '../../typography'
 
 import s from './modal-title.module.scss'
 
 type PropsType = {
   title: string
-  className: string
 }
-export const ModalTitle = (props: PropsType) => {
-  const { title, className } = props
-  const styles = `${className ? `${s.titleContainer} ${className}` : s.titleContainer}`
-
+export const ModalTitle = ({ title }: PropsType) => {
   return (
     <Dialog.Title asChild>
-      <div className={styles}>
+      <div className={s.titleContainer}>
         <Typography variant="h2" as="h2">
           {title}
         </Typography>
