@@ -26,7 +26,7 @@ export const Tabs = (props: PropsType) => {
       value={value}
       onValueChange={onValueChange}
     >
-      <TabsRadix.List className={s.tabsList} aria-label="Manage your account">
+      <TabsRadix.List className={s.tabsList}>
         {tabs.map(el => {
           return (
             <TabsRadix.Trigger
