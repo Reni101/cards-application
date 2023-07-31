@@ -1,0 +1,37 @@
+.dialogOverlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0.7;
+  background-color: var(--color-dark-900);
+}
+
+.dialogContent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  max-width: 33.25rem;
+
+  background-color: var(--color-dark-700);
+  border: 1px solid var(--color-dark-500);
+
+  animation: content-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contentBody {
+  padding: 1.12rem 1.5rem 0;
+}
+
+@keyframes content-show {
+  from {
+    transform: translate(-50%, -48%) scale(0.96);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
