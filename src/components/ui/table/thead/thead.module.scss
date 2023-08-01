@@ -1,0 +1,40 @@
+.container {
+  background-color: var(--color-dark-500);
+
+  & th {
+    padding: 6px 24px;
+    text-align: left;
+    background-color: var(--color-dark-500);
+
+    & > span {
+      pointer-events: none;
+
+      position: relative;
+
+      display: flex;
+      gap: 4px;
+      align-items: center;
+
+      width: max-content;
+
+      & > svg {
+        transform: rotate(180deg);
+        transition: 0.2s transform ease-in-out;
+      }
+    }
+
+    & .arrow {
+      position: absolute;
+      right: -30px;
+    }
+
+    & .arrowDown {
+      transform: rotate(0deg);
+    }
+  }
+
+  th[data-sortable='true'] {
+    cursor: pointer;
+    user-select: none;
+  }
+}
