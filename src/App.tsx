@@ -1,14 +1,13 @@
 import s from './App.module.scss'
+import { LoginForm } from './components/auth/login-form'
 import { Header } from './components/ui/header'
-import { Table } from './components/ui/table'
 
 export function App() {
   return (
     <>
       <Header isLoggedIn={false} />
       <div className={s.container}>
-        {/*<LoginForm />*/}
-        <Table />
+        <LoginForm />
       </div>
     </>
   )

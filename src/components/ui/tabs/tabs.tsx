@@ -8,7 +8,7 @@ type TabType = {
   disabled?: boolean
 }
 
-export type PropsType = {
+type PropsType = {
   tabs: TabType[]
   defaultValue?: string
   className?: string

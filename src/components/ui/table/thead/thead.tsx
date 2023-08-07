@@ -1,19 +1,9 @@
 import { ComponentPropsWithoutRef } from 'react'
 
 import Arrow from '../../../../assets/icons/arrow'
+import { Column, Sort } from '../table'
 
 import s from './thead.module.scss'
-
-export type Sort = {
-  key: string
-  direction: 'asc' | 'desc'
-} | null
-
-export type Column = {
-  key: string
-  label: string
-  isSortable?: boolean
-}
 
 type PropsType = Omit<
   ComponentPropsWithoutRef<'thead'> & {
