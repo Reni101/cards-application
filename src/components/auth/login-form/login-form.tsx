@@ -83,7 +83,7 @@ export const LoginForm = (props: PropsType) => {
         Don`t have an account?
       </Typography>
 
-      <Button variant={'link'} as={'a'} href={'/'} className={s.link_sign_up}>
+      <Button variant={'link'} as={'a'} href={'/signup'} className={s.link_sign_up}>
         Sign up
       </Button>
     </Card>

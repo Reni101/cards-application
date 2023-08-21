@@ -11,6 +11,7 @@
 .content_container {
   position: relative;
   z-index: 100;
+  transform-origin: var(--radix-dropdown-menu-content-transform-origin);
 
   display: flex;
   flex-direction: column;
@@ -21,6 +22,8 @@
   background-color: var(--color-dark-700);
   border: 1px solid var(--color-dark-500);
   border-radius: 4px;
+
+  animation: scale-in 0.1s ease-out;
 }
 
 .item {
@@ -37,4 +40,16 @@
   height: 1px;
   margin: 0 auto;
   background-color: var(--color-dark-500);
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
