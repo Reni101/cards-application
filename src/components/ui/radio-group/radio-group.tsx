@@ -13,7 +13,6 @@ type OptionsType = {
 }
 
 type PropsType = {
-  labelText?: string
   value?: string
   onValueChange?: (value: string) => void
   disabled?: boolean
@@ -21,19 +20,28 @@ type PropsType = {
   className?: string
 }
 export const RadioGroup: FC<PropsType> = ({
-  options = [],
+  options,
   onValueChange,
   className,
-  disabled,
-  ...rest
+  disabled = false,
+  value,
 }) => {
   const disabledStyle = disabled ? s.disabled : ''
 
   return (
-    <RadioGroupRadix.Root className={s.root} disabled={disabled} {...rest}>
+    <RadioGroupRadix.Root
+      className={`${s.root} ${className ?? ''}`}
+      disabled={disabled}
+      onValueChange={onValueChange}
+      value={value}
+    >
       {options.map(option => (
         <div key={option.id} className={s.radio_container}>
-          <RadioGroupRadix.Item className={s.item} value={option.value} id={option.id}>
+          <RadioGroupRadix.Item
+            className={`${s.item} ${disabledStyle}`}
+            value={option.value}
+            id={option.id}
+          >
             <RadioGroupRadix.Indicator className={`${s.indicator} ${disabledStyle}`} />
           </RadioGroupRadix.Item>
           <Typography

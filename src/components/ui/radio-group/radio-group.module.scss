@@ -36,26 +36,28 @@ button {
       width: 16px;
       height: 16px;
 
-      border: 2px solid var(--color-accent-500);
+      border: 1.5px solid var(--color-accent-500);
       border-radius: 50%;
-    }
-
-    &:hover {
-      background-color: var(--color-dark-500);
-    }
-
-    &:focus-visible {
-      background-color: var(--color-dark-700);
-    }
-
-    &:active {
-      background-color: var(--color-accent-900);
     }
 
     &[data-disabled] {
       cursor: initial;
-      background-color: inherit;
-      border: 2px solid var(--color-accent-900);
+
+      &::after {
+        border-color: var(--color-accent-900);
+      }
+    }
+
+    &:hover:not([data-disabled]) {
+      background-color: var(--color-dark-500);
+    }
+
+    &:focus-visible:not([data-disabled]) {
+      background-color: var(--color-dark-700);
+    }
+
+    &:active:not([data-disabled]) {
+      background-color: var(--color-accent-900);
     }
 
     .indicator {
