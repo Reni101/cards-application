@@ -7,7 +7,7 @@ import { NavAvatar } from './navAvatar'
 type PropsType = {
   isLoggedIn?: boolean
 }
-export const Header = ({ isLoggedIn = false }: PropsType) => {
+export const Header = ({ isLoggedIn = true }: PropsType) => {
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
