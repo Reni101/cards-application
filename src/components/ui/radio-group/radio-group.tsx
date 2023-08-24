@@ -2,6 +2,8 @@ import { FC } from 'react'
 
 import * as RadioGroupRadix from '@radix-ui/react-radio-group'
 
+import { Typography } from '../typography'
+
 import s from './radio-group.module.scss'
 
 type OptionsType = {
@@ -28,27 +30,22 @@ export const RadioGroup: FC<PropsType> = ({
   const disabledStyle = disabled ? s.disabled : ''
 
   return (
-    <>
-      {options.map(option => {
-        return (
-          <div className={`${s.container} ${className}`} key={option.id}>
-            <RadioGroupRadix.Root
-              className={`${s.root}`}
-              aria-label="View density"
-              onValueChange={onValueChange}
-              disabled={disabled}
-              {...rest}
-            >
-              <RadioGroupRadix.Item className={s.item} value={option.value} id={option.id}>
-                <RadioGroupRadix.Indicator className={`${s.indicator} ${disabledStyle}`} />
-              </RadioGroupRadix.Item>
-            </RadioGroupRadix.Root>
-            <label className={`${s.label} ${disabledStyle}`} htmlFor={option.id}>
-              {option.label}
-            </label>
-          </div>
-        )
-      })}
-    </>
+    <RadioGroupRadix.Root className={s.root} disabled={disabled} {...rest}>
+      {options.map(option => (
+        <div key={option.id} className={s.radio_container}>
+          <RadioGroupRadix.Item className={s.item} value={option.value} id={option.id}>
+            <RadioGroupRadix.Indicator className={`${s.indicator} ${disabledStyle}`} />
+          </RadioGroupRadix.Item>
+          <Typography
+            as={'label'}
+            variant={'body2'}
+            className={`${s.label} ${disabledStyle}`}
+            htmlFor={option.id}
+          >
+            {option.label}
+          </Typography>
+        </div>
+      ))}
+    </RadioGroupRadix.Root>
   )
 }

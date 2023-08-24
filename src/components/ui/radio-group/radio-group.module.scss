@@ -2,55 +2,55 @@ button {
   all: unset;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-}
-
 .root {
-  cursor: pointer;
+  .radio_container {
+    display: flex;
+    gap: 0.125rem;
+    align-items: center;
+    justify-content: flex-start;
 
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 36px;
-  height: 36px;
-
-  background-color: inherit;
-  border-radius: 100%;
-
-  &:hover {
-    background-color: var(--color-dark-500);
-  }
-
-  &:active {
-    background-color: var(--color-accent-900);
-  }
-
-  &:focus-visible {
-    background-color: var(--color-accent-700);
-  }
-
-  &[data-disabled] {
-    cursor: initial;
-    background-color: inherit;
+    margin: 0.375rem;
   }
 
   .item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    cursor: pointer;
 
-    width: 0.5rem;
-    height: 0.5rem;
-    padding: 2px;
+    position: relative;
+
+    width: 2.25rem;
+    height: 2.25rem;
 
     background-color: inherit;
-    border: 2px solid var(--color-accent-500);
     border-radius: 100%;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(62%, 62%);
+
+      display: block;
+
+      width: 16px;
+      height: 16px;
+
+      border: 2px solid var(--color-accent-500);
+      border-radius: 50%;
+    }
+
+    &:hover {
+      background-color: var(--color-dark-500);
+    }
+
+    &:focus-visible {
+      background-color: var(--color-dark-700);
+    }
+
+    &:active {
+      background-color: var(--color-accent-900);
+    }
 
     &[data-disabled] {
       cursor: initial;
@@ -71,10 +71,12 @@ button {
       &::after {
         content: '';
 
+        position: absolute;
+
         display: block;
 
-        width: 8px;
-        height: 8px;
+        width: 0.5rem;
+        height: 0.5rem;
 
         background-color: var(--color-accent-500);
         border-radius: 50%;
@@ -91,12 +93,7 @@ button {
 
 .label {
   cursor: pointer;
-
-  padding-left: 2px;
-
-  font-size: var(--font-size-s);
-  line-height: var(--line-height-m);
-  color: var(--color-light-100);
+  user-select: none;
 
   &.disabled {
     cursor: initial;
