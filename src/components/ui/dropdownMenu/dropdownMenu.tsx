@@ -22,14 +22,13 @@ export const DropdownMenu = (props: PropsType) => {
   return (
     <DropdownMenuRadix.Root>
       <DropdownMenuRadix.Trigger asChild>
-        <button className={s.trigger} aria-label="Customise options">
-          {children}
-        </button>
+        <button className={s.trigger}>{children}</button>
       </DropdownMenuRadix.Trigger>
 
       <DropdownMenuRadix.Portal>
-        <DropdownMenuRadix.Content className={`${s.content_container} ${className}`}>
+        <DropdownMenuRadix.Content align={'end'} className={`${s.content_container} ${className}`}>
           {menuForRender}
+          <DropdownMenuRadix.Arrow className={s.arrow} />
         </DropdownMenuRadix.Content>
       </DropdownMenuRadix.Portal>
     </DropdownMenuRadix.Root>
