@@ -47,20 +47,20 @@ export const Select = (props: PropsType) => {
         defaultValue={props.defaultValue}
       >
         <SelectRadix.Trigger
-          className={`${s.SelectTrigger} ${props.classNameTrigger ?? ''}`}
+          className={`${s.selectTrigger} ${props.classNameTrigger ?? ''}`}
           disabled={props.disabled}
         >
           <SelectRadix.Value />
           {showIcon && (
-            <SelectRadix.Icon className={s.SelectIcon}>
+            <SelectRadix.Icon className={s.selectIcon}>
               <Arrow />
             </SelectRadix.Icon>
           )}
         </SelectRadix.Trigger>
-        <SelectRadix.Content position="popper" sideOffset={0} className={s.SelectContent}>
-          <SelectRadix.Viewport className={s.SelectViewport}>
+        <SelectRadix.Content position="popper" sideOffset={0} className={s.selectContent}>
+          <SelectRadix.Viewport className={s.selectViewport}>
             <SelectRadix.Group>
-              <SelectRadix.Label className={s.SelectLabel} />
+              <SelectRadix.Label className={s.selectLabel} />
               {itemForRender}
             </SelectRadix.Group>
           </SelectRadix.Viewport>
@@ -72,7 +72,7 @@ export const Select = (props: PropsType) => {
 
 const SelectItem = forwardRef(({ children, className, ...props }: any, forwardedRef) => {
   return (
-    <SelectRadix.Item className={`${s.SelectItem} ${className}`} {...props} ref={forwardedRef}>
+    <SelectRadix.Item className={`${s.selectItem} ${className}`} {...props} ref={forwardedRef}>
       <SelectRadix.ItemText>{children}</SelectRadix.ItemText>
     </SelectRadix.Item>
   )

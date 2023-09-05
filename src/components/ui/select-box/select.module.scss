@@ -12,7 +12,7 @@
   }
 }
 
-.SelectTrigger {
+.selectTrigger {
   all: unset;
 
   display: flex;
@@ -42,18 +42,18 @@
   }
 }
 
-.SelectIcon {
+.selectIcon {
   width: 1rem;
   height: 1rem;
 }
 
-.SelectTrigger[data-state='open'] {
-  .SelectIcon {
+.selectTrigger[data-state='open'] {
+  .selectIcon {
     transform: rotate(180deg);
   }
 }
 
-.SelectContent {
+.selectContent {
   position: absolute;
   top: -1px;
 
@@ -65,7 +65,7 @@
   border-radius: 0 0 2px 2px;
 }
 
-.SelectItem {
+.selectItem {
   cursor: pointer;
 
   display: flex;
@@ -74,14 +74,14 @@
 
   min-height: 1.5rem !important;
   padding: 0.375rem 0.75rem;
-}
 
-.SelectItem[data-disabled] {
-  pointer-events: none;
-}
+  &[data-disabled] {
+    pointer-events: none;
+  }
 
-.SelectItem[data-highlighted] {
-  color: var(--color-accent-300);
-  background-color: var(--color-accent-900);
-  outline: none;
+  &[data-highlighted] {
+    color: var(--color-accent-300);
+    background-color: var(--color-accent-900);
+    outline: none;
+  }
 }
