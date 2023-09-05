@@ -18,7 +18,12 @@ type PropsType = {
 }
 
 const schema = z.object({
-  newPassword: z.string().trim().nonempty('Enter password').min(3, 'Minimum of 3 characters'),
+  newPassword: z
+    .string()
+    .trim()
+    .nonempty('Enter password')
+    .min(3, 'Minimum of 3 characters')
+    .max(30, 'Must be no more than 30 characters'),
 })
 
 export const ChangePassword = (props: PropsType) => {
@@ -34,7 +39,6 @@ export const ChangePassword = (props: PropsType) => {
   })
 
   const onSubmitHandler = (data: FormValueType) => {
-    console.log(data)
     onSubmit && onSubmit(data)
   }
 

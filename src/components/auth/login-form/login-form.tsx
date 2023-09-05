@@ -11,8 +11,13 @@ import { Typography } from '../../ui/typography'
 import s from './login-form.module.scss'
 
 const schema = z.object({
-  email: z.string().trim().email('Invalid email address ').nonempty('Enter email'),
-  password: z.string().trim().nonempty('Enter password').min(3, 'Must be 3  characters long'),
+  email: z.string().trim().nonempty('Enter email').email('Invalid email address '),
+  password: z
+    .string()
+    .trim()
+    .nonempty('Enter password')
+    .min(3, 'Must be 3 characters long')
+    .max(30, 'Must be no more than 30 characters'),
   rememberMe: z.boolean().optional(),
 })
 

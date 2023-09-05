@@ -24,6 +24,7 @@ export const EditProfileInfo = (props: PropsType) => {
         placeholder="Nick name"
         onSetValue={setValue}
         value={value}
+        autoFocus
       />
       <Button fullWidth={true} variant="primary" onClick={onCloseEditInfo}>
         Save Changes

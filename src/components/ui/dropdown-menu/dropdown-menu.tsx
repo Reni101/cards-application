@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 import * as DropdownMenuRadix from '@radix-ui/react-dropdown-menu'
 
-import s from './dropdownMenu.module.scss'
+import s from './dropdown-menu.module.scss'
 
 type PropsType = {
   children: ReactNode

@@ -3,7 +3,7 @@ import { useId } from 'react'
 import { LogOut } from '../../../../assets/icons/logOut'
 import Person from '../../../../assets/icons/person'
 import { Avatar } from '../../avatar'
-import { DropdownMenu } from '../../dropdownMenu'
+import { DropdownMenu } from '../../dropdown-menu'
 import { Typography } from '../../typography'
 
 import s from './navAvatar.module.scss'
