@@ -7,12 +7,12 @@ import {
 } from 'react-router-dom'
 
 import { Profile } from './components/auth/profile'
-import { Login } from './pages/login'
+import { SignIn } from './pages/sign-in'
 
 const publicRoutes: RouteObject[] = [
   {
     path: '/',
-    element: <Login />,
+    element: <SignIn />,
   },
   {
     path: '/signup',
