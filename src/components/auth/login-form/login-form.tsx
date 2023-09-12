@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useController, useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { z } from 'zod'
 
 import { Button } from '../../ui/button'
@@ -88,7 +89,7 @@ export const LoginForm = (props: PropsType) => {
         Don`t have an account?
       </Typography>
 
-      <Button variant={'link'} as={'a'} href={'/signup'} className={s.link_sign_up}>
+      <Button variant={'link'} as={Link} to={'/signup'} className={s.link_sign_up}>
         Sign up
       </Button>
     </Card>

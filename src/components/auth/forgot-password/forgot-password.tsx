@@ -32,7 +32,6 @@ export const ForgotPassword = (props: PropsType) => {
 
   const onSubmitHandler = (data: FormValues) => {
     onSubmit && onSubmit(data)
-    console.log(data)
   }
 
   return (

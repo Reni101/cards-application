@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { z } from 'zod'
 
 import { Button } from '../../ui/button'
@@ -76,7 +77,7 @@ export const RegisterForm = (props: PropsType) => {
         Already have an account?
       </Typography>
 
-      <Button variant={'link'} as={'a'} href={'/'} className={s.link_sign_in}>
+      <Button variant={'link'} as={Link} to={'/'} className={s.link_sign_in}>
         Sign In
       </Button>
     </Card>

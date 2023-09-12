@@ -2,20 +2,25 @@ import { useId } from 'react'
 
 import { LogOut } from '../../../../assets/icons/logOut'
 import Person from '../../../../assets/icons/person'
+import { AuthMeData } from '../../../../services/auth-api/types'
 import { Avatar } from '../../avatar'
 import { DropdownMenu } from '../../dropdown-menu'
 import { Typography } from '../../typography'
 
 import s from './navAvatar.module.scss'
 
-export const NavAvatar = () => {
+type PropsType = {
+  userData: AuthMeData | undefined
+}
+
+export const NavAvatar = ({ userData }: PropsType) => {
   const options = [
     <div key={useId()} className={s.info}>
-      <Avatar fallback={'Ivan'} />
+      <Avatar fallback={userData!.name} />
       <div>
-        <Typography variant={'subtitle2'}> Ivan</Typography>
+        <Typography variant={'subtitle2'}> {userData!.name}</Typography>
         <Typography variant={'caption'} className={s.email}>
-          j&johnson@gmail.com
+          {userData!.email}
         </Typography>
       </div>
     </div>,
@@ -32,9 +37,9 @@ export const NavAvatar = () => {
       <DropdownMenu options={options}>
         <div className={s.avatar}>
           <Typography variant={'subtitle1'} className={s.name}>
-            Ivan
+            {userData?.name}
           </Typography>
-          <Avatar fallback={'Ivan'} />
+          <Avatar fallback={userData!.name} />
         </div>
       </DropdownMenu>
     </div>

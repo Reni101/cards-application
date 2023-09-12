@@ -1,12 +1,16 @@
 import { LoginForm } from '../../components/auth/login-form'
-import { useLoginMutation } from '../../services/auth-api/auth-api'
-import { LoginDataType } from '../../services/auth-api/Types'
+import { useSignInMutation } from '../../services/auth-api/auth-api'
+import { LoginDataType } from '../../services/auth-api/types'
 
 export const SignIn = () => {
-  const [loginRequest] = useLoginMutation()
+  const [signIn, { data }] = useSignInMutation()
+
+  if (data?.accessToken) {
+    console.log(data.accessToken)
+  }
 
   const onSubmitHandler = (data: LoginDataType) => {
-    loginRequest(data)
+    signIn(data)
   }
 
   return <LoginForm onSubmit={onSubmitHandler} />
