@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { Logo } from '../../../assets/icons/logo'
 import { useAuthMeQuery } from '../../../services/auth-api/auth-api'
 import { Button } from '../button'
@@ -15,8 +17,7 @@ export const Header = () => {
         {data ? (
           <NavAvatar userData={data} />
         ) : (
-          // fix this to Link
-          <Button variant={'primary'} as={'a'} href={'/'}>
+          <Button variant={'primary'} as={Link} to={'/'}>
             Sign In
           </Button>
         )}

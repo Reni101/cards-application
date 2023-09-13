@@ -1,10 +1,15 @@
+import { Outlet } from 'react-router-dom'
+
 import s from './App.module.scss'
-import { Router } from './router'
+import { Header } from './components/ui/header'
 
 export function App() {
   return (
-    <div className={s.container}>
-      <Router />
-    </div>
+    <>
+      <Header />
+      <div className={s.container}>
+        <Outlet />
+      </div>
+    </>
   )
 }
