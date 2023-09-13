@@ -60,13 +60,13 @@ export const LoginForm = (props: PropsType) => {
         <TextField
           className={s.input}
           errorMessage={errors.email?.message}
-          label={'email'}
+          label={'Email'}
           {...register('email')}
         />
         <TextField
           className={s.input}
           errorMessage={errors.password?.message}
-          label={'password'}
+          label={'Password'}
           type={'password'}
           {...register('password')}
         />
