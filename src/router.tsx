@@ -6,8 +6,10 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 
+import { App } from './App'
 import { Profile } from './components/auth/profile'
 import { SignIn } from './pages/sign-in'
+import { SignUp } from './pages/sign-up'
 
 const publicRoutes: RouteObject[] = [
   {
@@ -16,7 +18,11 @@ const publicRoutes: RouteObject[] = [
   },
   {
     path: '/signup',
-    element: <div> sign up</div>,
+    element: <SignUp />,
+  },
+  {
+    path: '/check_email',
+    element: <div>check email</div>,
   },
   {
     path: '/*',
@@ -37,10 +43,16 @@ const privateRoutes: RouteObject[] = [
 
 const router = createBrowserRouter([
   {
-    element: <PrivateRoutes />,
-    children: privateRoutes,
+    element: <App />,
+    path: '/',
+    children: [
+      {
+        element: <PrivateRoutes />,
+        children: privateRoutes,
+      },
+      ...publicRoutes,
+    ],
   },
-  ...publicRoutes,
 ])
 
 function PrivateRoutes() {
