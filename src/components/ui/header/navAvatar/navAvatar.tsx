@@ -1,7 +1,5 @@
 import { useId } from 'react'
 
-import { useNavigate } from 'react-router-dom'
-
 import { LogOut } from '../../../../assets/icons/logOut'
 import Person from '../../../../assets/icons/person'
 import { useSignOutMutation } from '../../../../services/auth-api/auth-api'
@@ -17,15 +15,10 @@ type PropsType = {
 }
 
 export const NavAvatar = ({ userData }: PropsType) => {
-  const navigate = useNavigate()
-  const [signOut, {}] = useSignOutMutation()
+  const [signOut] = useSignOutMutation()
 
   const logOutHandler = () => {
     signOut()
-      .unwrap()
-      .then(() => {
-        navigate('/')
-      })
   }
 
   const options = [

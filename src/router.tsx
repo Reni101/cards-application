@@ -50,30 +50,29 @@ const privateRoutes: RouteObject[] = [
 const router = createBrowserRouter([
   {
     element: <App />,
-    path: '/',
     children: [
       {
         element: <PrivateRoutes />,
         children: privateRoutes,
       },
-      {
-        element: <PublicRoutes />,
-        children: publicRoutes,
-      },
+      ...publicRoutes,
     ],
   },
 ])
 
 function PrivateRoutes() {
-  const { data } = useAuthMeQuery()
-  // if (isLoading) return <div>...Loading</div>
+  const { data, isSuccess } = useAuthMeQuery()
+  const isAuthenticated = data && isSuccess
 
-  return data ? <Outlet /> : <Navigate to="/" />
-}
-function PublicRoutes() {
-  return <Outlet />
+  return isAuthenticated ? <Outlet /> : <Navigate to="/" />
 }
 
 export const Router = () => {
+  const auth = useAuthMeQuery()
+
+  console.log('router', auth)
+
+  // if (isLoading) return <div>loading</div>
+
   return <RouterProvider router={router} />
 }
