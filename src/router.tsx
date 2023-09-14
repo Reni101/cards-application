@@ -68,11 +68,9 @@ function PrivateRoutes() {
 }
 
 export const Router = () => {
-  const auth = useAuthMeQuery()
+  const { isLoading } = useAuthMeQuery()
 
-  console.log('router', auth)
-
-  // if (isLoading) return <div>loading</div>
+  if (isLoading) return <div>loading</div>
 
   return <RouterProvider router={router} />
 }

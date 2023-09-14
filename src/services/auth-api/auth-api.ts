@@ -12,6 +12,7 @@ const authApi = baseApi.injectEndpoints({
         }
       },
       providesTags: ['Me'],
+      extraOptions: { maxRetries: 1 },
     }),
     updateUserData: builder.mutation<any, any>({
       query: () => {
