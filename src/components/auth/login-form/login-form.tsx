@@ -77,7 +77,7 @@ export const LoginForm = (props: PropsType) => {
           checked={value}
         />
 
-        <Typography className={s.forgot} variant={'body2'} as={'a'} href={'/'}>
+        <Typography className={s.forgot} variant={'body2'} as={Link} to={'/forgot_password'}>
           Forgot Password?
         </Typography>
         <Button className={s.button_submit} fullWidth type="submit">

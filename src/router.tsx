@@ -8,6 +8,7 @@ import {
 
 import { App } from './App'
 import { Profile } from './components/auth/profile'
+import { CheckEmail } from './pages/check-email'
 import { SignIn } from './pages/sign-in'
 import { SignUp } from './pages/sign-up'
 
@@ -22,7 +23,11 @@ const publicRoutes: RouteObject[] = [
   },
   {
     path: '/check_email',
-    element: <div>check email</div>,
+    element: <CheckEmail />,
+  },
+  {
+    path: '/forgot_password',
+    element: <div>forgot_password</div>,
   },
   {
     path: '/*',

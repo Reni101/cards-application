@@ -11,12 +11,14 @@ const authApi = baseApi.injectEndpoints({
           method: 'GET',
         }
       },
+      providesTags: ['Me'],
     }),
     updateUserData: builder.mutation<any, any>({
       query: () => {
         return {
           url: 'auth/me',
           method: 'PATCH',
+          body: {},
         }
       },
     }),
@@ -28,6 +30,7 @@ const authApi = baseApi.injectEndpoints({
           body: { password, email, rememberMe },
         }
       },
+      invalidatesTags: ['Me'],
     }),
     signUp: builder.mutation<
       { id: string; name: string; email: string },
@@ -38,6 +41,15 @@ const authApi = baseApi.injectEndpoints({
           url: 'auth/sign-up',
           method: 'POST',
           body: { password, email },
+        }
+      },
+    }),
+    recoverPassword: builder.mutation<any, any>({
+      query: () => {
+        return {
+          url: 'auth/recover-password',
+          method: 'POST',
+          body: {},
         }
       },
     }),

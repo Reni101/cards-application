@@ -1,14 +1,16 @@
+import { Link } from 'react-router-dom'
+
 import EmailCheck from '../../../assets/icons/emailCheck.tsx'
 import { Button } from '../../ui/button'
 import { Card } from '../../ui/card'
 import { Typography } from '../../ui/typography'
 
-import s from './check-email.module.scss'
+import s from './check-email-form.module.scss'
 
 type PropsType = {
   email: string
 }
-export const CheckEmail = (props: PropsType) => {
+export const CheckEmailForm = (props: PropsType) => {
   const { email } = props
 
   return (
@@ -20,7 +22,7 @@ export const CheckEmail = (props: PropsType) => {
       <Typography variant="body2" className={s.description}>
         {`We’ve sent an Email with instructions to ${email}`}
       </Typography>
-      <Button className={s.button} fullWidth variant="primary">
+      <Button className={s.button} as={Link} to={'/'} fullWidth variant="primary">
         Back to Sign In
       </Button>
     </Card>
