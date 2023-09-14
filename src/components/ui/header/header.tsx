@@ -1,20 +1,20 @@
 import { Link } from 'react-router-dom'
 
 import { Logo } from '../../../assets/icons/logo'
-import { useAuthMeQuery } from '../../../services/auth-api/auth-api'
+import { useGetMeQuery } from '../../../services/auth-api/auth-api'
 import { Button } from '../button'
 
 import s from './header.module.scss'
 import { NavAvatar } from './navAvatar'
 
 export const Header = () => {
-  const { data, isSuccess } = useAuthMeQuery()
+  const { data } = useGetMeQuery()
 
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
         <Logo />
-        {!!data?.email && isSuccess ? (
+        {data?.email ? (
           <NavAvatar userData={data} />
         ) : (
           <Button variant={'primary'} as={Link} to={'/'}>

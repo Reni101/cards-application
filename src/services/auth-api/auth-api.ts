@@ -4,16 +4,15 @@ import { AuthMeData, LoginDataType } from './types'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
-    authMe: builder.query<AuthMeData, void>({
-      query: () => {
-        return {
-          url: 'auth/me',
-          method: 'GET',
-        }
-      },
-      providesTags: ['Me'],
-      extraOptions: { maxRetries: 1 },
-    }),
+    // authMe: builder.query<AuthMeData, void>({
+    //   query: () => {
+    //     return {
+    //       url: 'auth/me',
+    //       method: 'GET',
+    //     }
+    //   },
+    //   providesTags: ['Me'],
+    // }),
     updateUserData: builder.mutation<any, any>({
       query: () => {
         return {
@@ -63,13 +62,28 @@ const authApi = baseApi.injectEndpoints({
         }
       },
     }),
+    getMe: builder.query<any, void>({
+      async queryFn(_name, _api, _extraOptions, baseQuery) {
+        const result = await baseQuery({
+          url: 'auth/me',
+          method: 'GET',
+        })
+
+        if (result.error?.status === 401) {
+          return { data: { success: false } }
+        }
+
+        return { data: result.data as AuthMeData }
+      },
+      providesTags: ['Me'],
+    }),
   }),
 })
 
 export const {
-  useAuthMeQuery,
   useUpdateUserDataMutation,
   useSignInMutation,
   useSignUpMutation,
   useSignOutMutation,
+  useGetMeQuery,
 } = authApi

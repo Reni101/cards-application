@@ -5,6 +5,7 @@ export type LoginDataType = {
 }
 
 export type AuthMeData = {
+  success: boolean
   email: string
   name: string
   id: string
