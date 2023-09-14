@@ -14,7 +14,7 @@ export const Header = () => {
     <div className={s.wrapper}>
       <div className={s.container}>
         <Logo />
-        {data?.email && isSuccess ? (
+        {!!data?.email && isSuccess ? (
           <NavAvatar userData={data} />
         ) : (
           <Button variant={'primary'} as={Link} to={'/'}>

@@ -56,17 +56,22 @@ const router = createBrowserRouter([
         element: <PrivateRoutes />,
         children: privateRoutes,
       },
-      ...publicRoutes,
+      {
+        element: <PublicRoutes />,
+        children: publicRoutes,
+      },
     ],
   },
 ])
 
 function PrivateRoutes() {
-  const { data, isLoading } = useAuthMeQuery()
-
-  if (isLoading) return <div>...Loading</div>
+  const { data } = useAuthMeQuery()
+  // if (isLoading) return <div>...Loading</div>
 
   return data ? <Outlet /> : <Navigate to="/" />
+}
+function PublicRoutes() {
+  return <Outlet />
 }
 
 export const Router = () => {
