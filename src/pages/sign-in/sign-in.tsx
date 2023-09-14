@@ -1,25 +1,13 @@
-import { useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 import { LoginForm } from '../../components/auth/login-form'
-import { useSignInMutation } from '../../services/auth-api/auth-api'
-import { LoginDataType } from '../../services/auth-api/types'
+import { useAuthMeQuery, useSignInMutation } from '../../services/auth-api/auth-api'
 
 export const SignIn = () => {
-  const navigate = useNavigate()
+  const [signIn] = useSignInMutation()
+  const { data, isSuccess } = useAuthMeQuery()
 
-  const [signIn, { data }] = useSignInMutation()
+  if (data && isSuccess) return <Navigate to={'/decks'} />
 
-  if (data?.accessToken) {
-    // console.log(data.accessToken)
-  }
-
-  const onSubmitHandler = (data: LoginDataType) => {
-    signIn(data)
-      .unwrap()
-      .then(() => {
-        navigate('decks')
-      })
-  }
-
-  return <LoginForm onSubmit={onSubmitHandler} />
+  return <LoginForm onSubmit={signIn} />
 }
