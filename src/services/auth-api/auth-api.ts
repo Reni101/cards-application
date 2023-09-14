@@ -22,6 +22,15 @@ const authApi = baseApi.injectEndpoints({
         }
       },
     }),
+    signOut: builder.mutation<void, void>({
+      query: () => {
+        return {
+          url: 'auth/logout',
+          method: 'POST',
+        }
+      },
+      invalidatesTags: ['Me'],
+    }),
     signIn: builder.mutation<{ accessToken: string }, LoginDataType>({
       query: ({ password, email, rememberMe = true }) => {
         return {
@@ -56,5 +65,10 @@ const authApi = baseApi.injectEndpoints({
   }),
 })
 
-export const { useAuthMeQuery, useUpdateUserDataMutation, useSignInMutation, useSignUpMutation } =
-  authApi
+export const {
+  useAuthMeQuery,
+  useUpdateUserDataMutation,
+  useSignInMutation,
+  useSignUpMutation,
+  useSignOutMutation,
+} = authApi

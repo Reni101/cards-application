@@ -77,6 +77,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
         )}
         <div className={`${s.inputWrapper} ${disabled ? s.disabled : ''}`}>
           <input
+            autoComplete="off"
             className={`${stylesInput.input} ${stylesInput.error}`}
             id={inputId}
             type={isPass && isShowPass ? 'text' : type}

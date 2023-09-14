@@ -8,13 +8,13 @@ import s from './header.module.scss'
 import { NavAvatar } from './navAvatar'
 
 export const Header = () => {
-  const { data } = useAuthMeQuery()
+  const { data, isSuccess } = useAuthMeQuery()
 
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
         <Logo />
-        {data ? (
+        {data?.email && isSuccess ? (
           <NavAvatar userData={data} />
         ) : (
           <Button variant={'primary'} as={Link} to={'/'}>

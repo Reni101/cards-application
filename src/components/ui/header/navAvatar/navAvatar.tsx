@@ -1,7 +1,10 @@
 import { useId } from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 import { LogOut } from '../../../../assets/icons/logOut'
 import Person from '../../../../assets/icons/person'
+import { useSignOutMutation } from '../../../../services/auth-api/auth-api'
 import { AuthMeData } from '../../../../services/auth-api/types'
 import { Avatar } from '../../avatar'
 import { DropdownMenu } from '../../dropdown-menu'
@@ -14,6 +17,17 @@ type PropsType = {
 }
 
 export const NavAvatar = ({ userData }: PropsType) => {
+  const navigate = useNavigate()
+  const [signOut, {}] = useSignOutMutation()
+
+  const logOutHandler = () => {
+    signOut()
+      .unwrap()
+      .then(() => {
+        navigate('/')
+      })
+  }
+
   const options = [
     <div key={useId()} className={s.info}>
       <Avatar fallback={userData!.name} />
@@ -27,7 +41,7 @@ export const NavAvatar = ({ userData }: PropsType) => {
     <div key={useId()} className={s.item}>
       <Person /> My Profile
     </div>,
-    <div key={useId()} className={s.item}>
+    <div key={useId()} className={s.item} onClick={logOutHandler}>
       <LogOut /> Sign Out
     </div>,
   ]

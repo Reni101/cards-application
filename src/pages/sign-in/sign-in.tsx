@@ -10,7 +10,7 @@ export const SignIn = () => {
   const [signIn, { data }] = useSignInMutation()
 
   if (data?.accessToken) {
-    console.log(data.accessToken)
+    // console.log(data.accessToken)
   }
 
   const onSubmitHandler = (data: LoginDataType) => {

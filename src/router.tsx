@@ -11,6 +11,7 @@ import { Profile } from './components/auth/profile'
 import { CheckEmail } from './pages/check-email'
 import { SignIn } from './pages/sign-in'
 import { SignUp } from './pages/sign-up'
+import { useAuthMeQuery } from './services/auth-api/auth-api'
 
 const publicRoutes: RouteObject[] = [
   {
@@ -61,9 +62,11 @@ const router = createBrowserRouter([
 ])
 
 function PrivateRoutes() {
-  const isAuthenticated = true
+  const { data, isLoading } = useAuthMeQuery()
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/" />
+  if (isLoading) return <div>...Loading</div>
+
+  return data ? <Outlet /> : <Navigate to="/" />
 }
 
 export const Router = () => {
