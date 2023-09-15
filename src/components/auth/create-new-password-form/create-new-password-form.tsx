@@ -10,7 +10,7 @@ import { Typography } from '../../ui/typography'
 import s from './crreate-new-password-form.module.scss'
 
 const schema = z.object({
-  password: z.string().trim().nonempty('Enter password'),
+  password: z.string().trim().nonempty('Enter password').min(3, 'Minimum of 3 characters'),
 })
 
 type FormValues = z.infer<typeof schema>

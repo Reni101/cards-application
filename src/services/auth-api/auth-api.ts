@@ -65,8 +65,17 @@ const authApi = baseApi.injectEndpoints({
           method: 'POST',
           body: {
             email,
-            html: '<h1>Hi,dear ##name##</h1><p>Click <a href="http://localhost:5173/##token##">here</a> to recover your password</p>',
+            html: '<h1>Hi,dear ##name##</h1><p>Click <a href="http://localhost:5173/create-new-password/##token##">here</a> to recover your password</p>',
           },
+        }
+      },
+    }),
+    resetPassword: builder.mutation<any, { token: string; password: string }>({
+      query: ({ token, password }) => {
+        return {
+          url: `auth/reset-password/${token}`,
+          method: 'POST',
+          body: { password },
         }
       },
     }),
@@ -80,4 +89,5 @@ export const {
   useSignUpMutation,
   useSignOutMutation,
   useGetMeQuery,
+  useResetPasswordMutation,
 } = authApi

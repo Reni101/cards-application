@@ -9,6 +9,7 @@ import {
 import { App } from './App'
 import { Profile } from './components/auth/profile'
 import { CheckEmail } from './pages/check-email'
+import { CreateNewPassword } from './pages/create-new-password'
 import { ForgotPassword } from './pages/forgot-password'
 import { SignIn } from './pages/sign-in'
 import { SignUp } from './pages/sign-up'
@@ -30,6 +31,10 @@ const publicRoutes: RouteObject[] = [
   {
     path: '/forgot_password',
     element: <ForgotPassword />,
+  },
+  {
+    path: '/create-new-password/:token',
+    element: <CreateNewPassword />,
   },
   {
     path: '/*',
