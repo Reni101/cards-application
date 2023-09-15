@@ -5,9 +5,9 @@ import { useGetMeQuery, useSignInMutation } from '../../services/auth-api/auth-a
 
 export const SignIn = () => {
   const [signIn] = useSignInMutation()
-  const { data, isSuccess } = useGetMeQuery()
+  const { data } = useGetMeQuery()
 
-  if (data?.email && isSuccess) return <Navigate to={'/decks'} />
+  if (data && data?.success !== false) return <Navigate to={'/decks'} />
 
   return <LoginForm onSubmit={signIn} />
 }

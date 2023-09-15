@@ -68,7 +68,7 @@ const router = createBrowserRouter([
 
 function PrivateRoutes() {
   const { data } = useGetMeQuery()
-  const isAuthenticated = data?.email
+  const isAuthenticated = data && data?.success !== false
 
   return isAuthenticated ? <Outlet /> : <Navigate to="/" />
 }

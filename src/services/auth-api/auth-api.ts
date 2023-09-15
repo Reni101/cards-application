@@ -15,7 +15,7 @@ const authApi = baseApi.injectEndpoints({
           return { data: { success: false } }
         }
 
-        return { data: result.data as AuthMeData }
+        return { data: result.data } as { data: AuthMeData }
       },
       providesTags: ['Me'],
     }),
