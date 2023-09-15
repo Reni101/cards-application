@@ -1,21 +1,17 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
-import { CheckEmailForm } from './'
+import { CreateNewPasswordForm } from './'
 
 const meta = {
-  title: 'Auth/CheckEmailForm',
-  component: CheckEmailForm,
+  title: 'Auth/CreateNewPassword',
+  component: CreateNewPasswordForm,
   tags: ['autodocs'],
   argTypes: {},
   decorators: [withRouter],
-} satisfies Meta<typeof CheckEmailForm>
+} satisfies Meta<typeof CreateNewPasswordForm>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    email: 'bla-bla@gmail.com',
-  },
-}
+export const Default: Story = {}

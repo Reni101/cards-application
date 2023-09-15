@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { RegisterForm } from './register-form.tsx'
 
@@ -7,6 +8,7 @@ const meta = {
   component: RegisterForm,
   tags: ['autodocs'],
   argTypes: {},
+  decorators: [withRouter],
 } satisfies Meta<typeof RegisterForm>
 
 export default meta

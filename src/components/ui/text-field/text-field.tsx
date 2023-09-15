@@ -51,10 +51,15 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
       isPass: boolean,
       isShowPass: boolean,
       isSearch: boolean,
-      value: string = ''
+      value: string = '',
+      isDisabled: boolean = false
     ) => {
       if (isPass) {
-        return isShowPass ? <ShowPass onClick={onShowPass} /> : <UnShowPass onClick={onShowPass} />
+        return isShowPass ? (
+          <ShowPass data-disabled={isDisabled} onClick={onShowPass} />
+        ) : (
+          <UnShowPass data-disabled={isDisabled} onClick={onShowPass} />
+        )
       }
       if (isSearch && value) {
         return <ClearText onClick={onClearInputText} />
@@ -89,7 +94,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldPropsType>(
           />
           <div className={s.inputIconLeft}>{iconLeft}</div>
           <div className={s.inputIconRight}>
-            {showIconRight(isPass, isShowPass, isSearch, value)}
+            {showIconRight(isPass, isShowPass, isSearch, value, disabled)}
           </div>
         </div>
         {errorMessage && <div className={s.errorMessage}>{errorMessage}</div>}

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { LoginForm } from './'
 
@@ -7,6 +8,7 @@ const meta = {
   component: LoginForm,
   tags: ['autodocs'],
   argTypes: {},
+  decorators: [withRouter],
 } satisfies Meta<typeof LoginForm>
 
 export default meta
