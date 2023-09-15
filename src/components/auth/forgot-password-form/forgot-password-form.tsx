@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { z } from 'zod'
 
 import { Button } from '../../ui/button'
@@ -19,7 +20,7 @@ type PropsType = {
   onSubmit?: (data: FormValues) => void
 }
 
-export const ForgotPassword = (props: PropsType) => {
+export const ForgotPasswordForm = (props: PropsType) => {
   const { onSubmit } = props
   const {
     register,
@@ -56,7 +57,7 @@ export const ForgotPassword = (props: PropsType) => {
       <Typography variant="body2" className={s.bottomText}>
         Did you remember your password?
       </Typography>
-      <Button variant={'link'} as={'a'} href={'#'} className={s.link}>
+      <Button variant={'link'} as={Link} to={'/'} className={s.link}>
         Try logging in
       </Button>
     </Card>

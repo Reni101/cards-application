@@ -13,8 +13,8 @@ export const SignUp = () => {
 
     signUp({ password, email })
       .unwrap()
-      .then(res => {
-        navigate('/check_email', { state: { email: res.email } })
+      .then(() => {
+        navigate('/')
       })
   }
 

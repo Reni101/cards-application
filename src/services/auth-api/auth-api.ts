@@ -4,64 +4,6 @@ import { AuthMeData, LoginDataType } from './types'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
-    // authMe: builder.query<AuthMeData, void>({
-    //   query: () => {
-    //     return {
-    //       url: 'auth/me',
-    //       method: 'GET',
-    //     }
-    //   },
-    //   providesTags: ['Me'],
-    // }),
-    updateUserData: builder.mutation<any, any>({
-      query: () => {
-        return {
-          url: 'auth/me',
-          method: 'PATCH',
-          body: {},
-        }
-      },
-    }),
-    signOut: builder.mutation<void, void>({
-      query: () => {
-        return {
-          url: 'auth/logout',
-          method: 'POST',
-        }
-      },
-      invalidatesTags: ['Me'],
-    }),
-    signIn: builder.mutation<{ accessToken: string }, LoginDataType>({
-      query: ({ password, email, rememberMe = true }) => {
-        return {
-          url: 'auth/login',
-          method: 'POST',
-          body: { password, email, rememberMe },
-        }
-      },
-      invalidatesTags: ['Me'],
-    }),
-    signUp: builder.mutation<
-      { id: string; name: string; email: string },
-      Omit<LoginDataType, 'rememberMe'>
-    >({
-      query: ({ password, email }) => {
-        return {
-          url: 'auth/sign-up',
-          method: 'POST',
-          body: { password, email },
-        }
-      },
-    }),
-    recoverPassword: builder.mutation<any, any>({
-      query: () => {
-        return {
-          url: 'auth/recover-password',
-          method: 'POST',
-          body: {},
-        }
-      },
-    }),
     getMe: builder.query<any, void>({
       async queryFn(_name, _api, _extraOptions, baseQuery) {
         const result = await baseQuery({
@@ -77,11 +19,63 @@ const authApi = baseApi.injectEndpoints({
       },
       providesTags: ['Me'],
     }),
+    updateUserData: builder.mutation<any, any>({
+      query: () => {
+        return {
+          url: 'auth/me',
+          method: 'PATCH',
+        }
+      },
+    }),
+    signIn: builder.mutation<{ accessToken: string }, LoginDataType>({
+      query: data => {
+        return {
+          url: 'auth/login',
+          method: 'POST',
+          body: data,
+        }
+      },
+      invalidatesTags: ['Me'],
+    }),
+    signOut: builder.mutation<void, void>({
+      query: () => {
+        return {
+          url: 'auth/logout',
+          method: 'POST',
+        }
+      },
+      invalidatesTags: ['Me'],
+    }),
+    signUp: builder.mutation<
+      { id: string; name: string; email: string },
+      Omit<LoginDataType, 'rememberMe'>
+    >({
+      query: data => {
+        return {
+          url: 'auth/sign-up',
+          method: 'POST',
+          body: data,
+        }
+      },
+    }),
+    recoverPassword: builder.mutation<any, { email: string }>({
+      query: ({ email }) => {
+        return {
+          url: 'auth/recover-password',
+          method: 'POST',
+          body: {
+            email,
+            html: '<h1>Hi,dear ##name##</h1><p>Click <a href="http://localhost:5173/##token##">here</a> to recover your password</p>',
+          },
+        }
+      },
+    }),
   }),
 })
 
 export const {
   useUpdateUserDataMutation,
+  useRecoverPasswordMutation,
   useSignInMutation,
   useSignUpMutation,
   useSignOutMutation,

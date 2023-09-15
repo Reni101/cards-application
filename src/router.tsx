@@ -9,6 +9,7 @@ import {
 import { App } from './App'
 import { Profile } from './components/auth/profile'
 import { CheckEmail } from './pages/check-email'
+import { ForgotPassword } from './pages/forgot-password'
 import { SignIn } from './pages/sign-in'
 import { SignUp } from './pages/sign-up'
 import { useGetMeQuery } from './services/auth-api/auth-api'
@@ -28,7 +29,7 @@ const publicRoutes: RouteObject[] = [
   },
   {
     path: '/forgot_password',
-    element: <div>forgot_password</div>,
+    element: <ForgotPassword />,
   },
   {
     path: '/*',

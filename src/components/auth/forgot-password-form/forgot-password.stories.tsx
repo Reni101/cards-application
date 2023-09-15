@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { ForgotPassword } from './'
+import { ForgotPasswordForm } from './'
 
 const meta = {
   title: 'Auth/ForgotPassword',
-  component: ForgotPassword,
+  component: ForgotPasswordForm,
   tags: ['autodocs'],
   argTypes: {},
-} satisfies Meta<typeof ForgotPassword>
+} satisfies Meta<typeof ForgotPasswordForm>
 
 export default meta
 type Story = StoryObj<typeof meta>
