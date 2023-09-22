@@ -20,7 +20,8 @@ export const CheckEmailForm = (props: PropsType) => {
       </Typography>
       <EmailCheck className={s.icon} />
       <Typography variant="body2" className={s.description}>
-        {`We’ve sent an Email with instructions to ${email}`}
+        We’ve sent an Email with instructions to
+        <br /> {email}
       </Typography>
       <Button className={s.button} as={Link} to={'/'} fullWidth variant="primary">
         Back to Sign In
