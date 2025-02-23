@@ -11,7 +11,7 @@ export const Header = () => {
   const { data } = useGetMeQuery()
 
   return (
-    <div className={s.wrapper}>
+    <header className={s.wrapper}>
       <div className={s.container}>
         <Logo />
         {data?.email ? (
@@ -22,6 +22,6 @@ export const Header = () => {
           </Button>
         )}
       </div>
-    </div>
+    </header>
   )
 }

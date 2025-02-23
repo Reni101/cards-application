@@ -56,7 +56,7 @@ export const LoginForm = (props: PropsType) => {
       <Typography variant={'large'} as={'h2'}>
         Sign In
       </Typography>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <TextField
           className={s.input}
           errorMessage={errors.email?.message}
